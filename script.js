@@ -2,6 +2,22 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const toast = document.querySelector('.toast');
 
+if (menuButton && nav) {
+  menuButton.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.textContent = isOpen ? '×' : '☰';
+  });
+
+  document.querySelectorAll('.nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    });
+  });
+}
+
 const PLATFORM_LABEL = {
   win: 'Windows',
   mac_arm64: 'macOS (Apple Silicon)',
@@ -12,20 +28,6 @@ const CHARACTER_LABEL = {
   heavinyang: '헤비냥',
   ishalong: '이샤롱',
 };
-
-menuButton.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  menuButton.textContent = isOpen ? '×' : '☰';
-});
-
-document.querySelectorAll('.nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.textContent = '☰';
-  });
-});
 
 function showToast(message) {
   toast.textContent = message;
@@ -75,13 +77,20 @@ async function initDownloads() {
 
 initDownloads();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.14 });
+const revealElements = document.querySelectorAll('.reveal');
+revealElements.forEach((element) => element.classList.add('reveal-ready'));
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+
+  revealElements.forEach((element) => observer.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add('visible'));
+}
