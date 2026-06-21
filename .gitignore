@@ -1,0 +1,11 @@
+outputs/
+work/
+.agents/
+.codex/
+downloads/files/*
+!downloads/files/.gitkeep
+*.exe
+*.dmg
+*.zip
+.DS_Store
+Thumbs.db

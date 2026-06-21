@@ -1,0 +1,14 @@
+{
+  "files": {
+    "heavinyang": {
+      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Heavinyang-latest-win64.exe",
+      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Heavinyang-latest-macos-arm64.dmg",
+      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Heavinyang-latest-macos-x64.dmg"
+    },
+    "ishalong": {
+      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Ishalong-latest-win64.exe",
+      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Ishalong-latest-macos-arm64.dmg",
+      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/latest/download/OshiDesk-Ishalong-latest-macos-x64.dmg"
+    }
+  }
+}

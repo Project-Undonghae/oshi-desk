@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oshi Desk - 좋아하는 캐릭터와 함께하는 데스크톱 펫">
+  <title>Oshi Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Oshi Desk 홈">
+      <strong>Oshi Desk</strong>
+    </a>
+    <button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#about">소개</a><a href="#story">상세 설명</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-characters">
+        <figure><img src="assets/heavinyang.png" alt="웃으며 손을 흔드는 헤비냥"><figcaption>헤비냥</figcaption></figure>
+        <figure><img src="assets/ishalong.png" alt="하트를 보내는 이샤롱"><figcaption>이샤롱</figcaption></figure>
+      </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">YOUR LITTLE DESKTOP FRIEND</p>
+        <h1>Oshi <span>Desk</span></h1>
+        <p class="hero-lead">좋아하는 사람과 늘,<br>함께할 수 있도록</p>
+      </div>
+    </section>
+
+    <section class="download-section" id="download" aria-labelledby="download-title">
+      <div class="download-shell">
+        <div class="download-heading"><p class="section-label">DOWNLOAD</p><h2 id="download-title">나의 오시를 데스크톱으로</h2></div>
+        <div class="download-groups">
+          <div class="download-group heavinyang-download">
+            <h3>헤비냥</h3>
+            <img class="download-character" src="assets/download-heavinyang.png" alt="달리는 헤비냥">
+            <button class="download-btn purple" data-character="heavinyang" data-platform="win"><b>헤비냥 다운로드<small>Windows</small></b></button>
+            <button class="download-btn purple" data-character="heavinyang" data-platform="mac_arm64"><b>헤비냥 다운로드<small>macOS (Apple Silicon)</small></b></button>
+            <button class="download-btn purple" data-character="heavinyang" data-platform="mac_x64"><b>헤비냥 다운로드<small>macOS (Intel)</small></b></button>
+          </div>
+          <div class="download-group ishalong-download">
+            <h3>이샤롱</h3>
+            <img class="download-character" src="assets/download-ishalong.png" alt="기뻐하는 이샤롱">
+            <button class="download-btn pink" data-character="ishalong" data-platform="win"><b>이샤롱 다운로드<small>Windows</small></b></button>
+            <button class="download-btn pink" data-character="ishalong" data-platform="mac_arm64"><b>이샤롱 다운로드<small>macOS (Apple Silicon)</small></b></button>
+            <button class="download-btn pink" data-character="ishalong" data-platform="mac_x64"><b>이샤롱 다운로드<small>macOS (Intel)</small></b></button>
+          </div>
+        </div>
+        <p class="download-note">최신 Windows/macOS 설치 파일 · 무료</p>
+      </div>
+    </section>
+
+    <div class="page-shell">
+      <section class="feature section-grid reveal" id="about">
+        <div class="section-copy">
+          <p class="section-label">Section 01</p>
+          <h2>바탕화면 속,<br>나만의 작은 펫과 함께</h2>
+          <p>귀여운 Desk Pet이 바탕화면 위에서 기다리고, 걷고, 쉬고, 반응합니다. 작은 움직임만으로도 데스크탑에 좋아하는 사람의 분위기를 더할 수 있어요.</p>
+        </div>
+        <div class="mood-grid">
+          <article class="mood-card"><img class="pet-asset idle" src="assets/idle.png" alt="대기 중인 헤비냥"><b>Idle</b><small>얌전히 기다려요</small></article>
+          <article class="mood-card"><img class="pet-asset walk" src="assets/walk.png" alt="산책하는 이샤롱"><b>Walk</b><small>화면을 산책해요</small></article>
+          <article class="mood-card"><img class="pet-asset listening" src="assets/listening.png" alt="음악을 듣고 있는 헤비냥"><b>Listening</b><small>함께 들어요</small></article>
+          <article class="mood-card"><img class="pet-asset happy" src="assets/grabbed.png" alt="잡아서 이동하는 이샤롱"><b>Grab</b><small>클릭해서 이동해요</small></article>
+        </div>
+      </section>
+
+      <section class="feature section-grid reveal">
+        <div class="section-copy">
+          <p class="section-label">Section 02</p>
+          <h2>자주 찾는 채널을<br>한 번의 클릭으로</h2>
+          <p>캐릭터를 우클릭하면 플로팅 UI가 열립니다. 영상, 음악, SNS와 커뮤니티 등 자주 방문하는 채널로 빠르게 이동할 수 있어요.</p>
+        </div>
+        <div class="channel-demo">
+          <div class="demo-pet"><img src="assets/heavinyang.png" alt="헤비냥"></div>
+          <div class="arrow">→</div>
+          <div class="channel-panel">
+            <div class="panel-title"><span>🐱</span> 나의 Channel <b>×</b></div>
+            <div class="channel-grid">
+              <button type="button" aria-label="YouTube"><span class="yt">▶</span>YouTube</button>
+              <button type="button" aria-label="X"><span class="x">𝕏</span>X</button>
+              <button type="button" aria-label="Spotify"><span class="sp">●</span>Spotify</button>
+              <button type="button" aria-label="Instagram"><span class="ig">◎</span>Instagram</button>
+              <button type="button" aria-label="TikTok"><span class="tk">♪</span>TikTok</button>
+              <button type="button" aria-label="Community"><span class="co">♥</span>Community</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature section-grid reveal" id="story">
+        <div class="section-copy">
+          <p class="section-label">Section 03</p>
+          <h2>좋아하는 사람이라면<br>누구와도 함께할 수 있습니다</h2>
+          <p>Oshi Desk는 특정 캐릭터에만 머무르지 않습니다. 새로운 친구들이 계속 업데이트되어 나만의 바탕화면 속 펫으로 확장됩니다.</p>
+        </div>
+        <div class="character-grid">
+          <article class="character-card gray"><img src="assets/heavinyang.png" alt="헤비냥"><b>헤비냥</b></article>
+          <article class="character-card rose"><img src="assets/ishalong.png" alt="이샤롱"><b>이샤롱</b></article>
+        </div>
+      </section>
+
+      <section class="project-note reveal">
+        <div>
+          <p class="section-label">OUR BEGINNING</p>
+          <h2>작은 연결에서 시작된 프로젝트</h2>
+          <p>좋아하는 존재가 일상 가까이에 머무는 경험을 목표로 합니다. 화면 한편의 조용한 움직임이 평범한 하루를 조금 더 다정하게 만들기를 바랍니다.</p>
+        </div>
+        <div class="project-link"><span>✨</span><div><b>Oshi Desk 소식 받기</b><p>새 캐릭터와 업데이트를 가장 먼저 확인하세요.</p></div><a class="x-link" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X에서 Oshi Desk 소식 보기"><img src="assets/x-icon.svg" alt=""></a></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>Oshi Desk</strong>
+      <span>좋아하는 마음을 화면 가까이.</span>
+      <small>© 2026 Oshi Desk</small>
+    </div>
+    <div class="footer-origin">
+      <p class="footer-origin-label">FROM</p>
+      <a class="footer-origin-link" href="https://project-undonghae.github.io/desk-ai-pet/" target="_blank" rel="noopener noreferrer" aria-label="DAP, Desk AI Pet — Oshi Desk가 시작된 AgentOS">
+        <span class="footer-origin-copy">
+          <b>DAP</b>
+          <small>Desk AI Pet · Oshi Desk가 시작된 AgentOS</small>
+        </span>
+        <span class="footer-origin-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

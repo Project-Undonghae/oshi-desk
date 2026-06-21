@@ -1,0 +1,87 @@
+const menuButton = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+const toast = document.querySelector('.toast');
+
+const PLATFORM_LABEL = {
+  win: 'Windows',
+  mac_arm64: 'macOS (Apple Silicon)',
+  mac_x64: 'macOS (Intel)',
+};
+
+const CHARACTER_LABEL = {
+  heavinyang: '헤비냥',
+  ishalong: '이샤롱',
+};
+
+menuButton.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.textContent = isOpen ? '×' : '☰';
+});
+
+document.querySelectorAll('.nav a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.textContent = '☰';
+  });
+});
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  window.clearTimeout(window.toastTimer);
+  window.toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2400);
+}
+
+function setDownloadButtonState(button, enabled, label) {
+  button.disabled = !enabled;
+  button.setAttribute('aria-disabled', String(!enabled));
+  if (label) button.setAttribute('title', label);
+  else button.removeAttribute('title');
+}
+
+async function initDownloads() {
+  const buttons = document.querySelectorAll('.download-btn[data-character][data-platform]');
+  let manifest;
+
+  try {
+    const response = await fetch('downloads/index.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('manifest unavailable');
+    manifest = await response.json();
+  } catch {
+    buttons.forEach((button) => setDownloadButtonState(button, false, '다운로드 정보를 불러올 수 없습니다'));
+    return;
+  }
+
+  buttons.forEach((button) => {
+    const character = button.dataset.character;
+    const platform = button.dataset.platform;
+    const url = manifest.files?.[character]?.[platform]?.trim();
+    const name = `${CHARACTER_LABEL[character] || character} ${PLATFORM_LABEL[platform] || platform}`;
+
+    if (!url) {
+      setDownloadButtonState(button, false, `${name} — 준비 중`);
+      button.addEventListener('click', () => showToast(`${name} 다운로드는 준비 중입니다.`));
+      return;
+    }
+
+    setDownloadButtonState(button, true);
+    button.addEventListener('click', () => {
+      window.location.href = url;
+    });
+  });
+}
+
+initDownloads();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
