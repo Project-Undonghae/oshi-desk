@@ -25,8 +25,8 @@ const PLATFORM_LABEL = {
 };
 
 const CHARACTER_LABEL = {
-  heavinyang: '헤비냥',
-  ishalong: '이샤롱',
+  hebi: '헤비냥',
+  isha: '이샤롱',
 };
 
 function showToast(message) {
