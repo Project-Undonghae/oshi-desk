@@ -1,14 +1,14 @@
 {
   "files": {
     "hebi": {
-      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Hebi-0.2.1-portable-win64.exe",
-      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Hebi-0.2.1-macos-arm64.dmg",
-      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Hebi-0.2.1-macos-x64.dmg"
+      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Hebi-0.2.2-portable-win64.exe",
+      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Hebi-0.2.2-macos-arm64.dmg",
+      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Hebi-0.2.2-macos-x64.dmg"
     },
     "isha": {
-      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Isha-0.2.1-portable-win64.exe",
-      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Isha-0.2.1-macos-arm64.dmg",
-      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.1/OshiDesk-Isha-0.2.1-macos-x64.dmg"
+      "win": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Isha-0.2.2-portable-win64.exe",
+      "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Isha-0.2.2-macos-arm64.dmg",
+      "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.2/OshiDesk-Isha-0.2.2-macos-x64.dmg"
     }
   }
 }
