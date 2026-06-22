@@ -70,6 +70,16 @@ async function initDownloads() {
 
     setDownloadButtonState(button, true);
     button.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'download_click', {
+          character,
+          platform,
+          character_label: CHARACTER_LABEL[character] || character,
+          platform_label: PLATFORM_LABEL[platform] || platform,
+          item_name: name,
+          file_url: url,
+        });
+      }
       window.location.href = url;
     });
   });
