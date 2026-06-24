@@ -39,3 +39,5 @@
 @media(max-width:650px){.download-section{padding:32px 0}.download-shell{width:calc(100% - 36px);gap:20px}.download-groups{grid-template-columns:1fr}.download-group{grid-template-columns:1fr}.download-group .download-btn{min-height:68px}.hero-copy{padding-bottom:110px}}
 .download-character{grid-column:1/-1;display:block;width:150px;height:150px;object-fit:contain;margin:-6px auto 5px;filter:drop-shadow(0 12px 13px #65578324)}
 @media(max-width:650px){.download-character{width:135px;height:135px}}
+.brand-tag{font-family:Outfit,sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);background:var(--lav);padding:4px 10px;border-radius:99px;white-space:nowrap}
+@media(max-width:650px){.brand-tag{font-size:9px;padding:3px 8px}}
