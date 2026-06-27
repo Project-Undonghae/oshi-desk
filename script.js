@@ -2,11 +2,25 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const toast = document.querySelector('.toast');
 
+function tr(key, vars) {
+  const lang = window.OshiI18n?.getLang?.() || 'ko';
+  return window.OshiI18n?.t?.(lang, key, vars) ?? key;
+}
+
+function updateLangBadge() {
+  const badge = document.querySelector('.lang-current');
+  if (!badge) return;
+  const lang = window.OshiI18n?.getLang?.() || 'ko';
+  const labels = { ko: 'KO', en: 'EN', ja: 'JA', 'zh-TW': 'ZH' };
+  badge.textContent = labels[lang] || 'KO';
+}
+
 if (menuButton && nav) {
   menuButton.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
     menuButton.setAttribute('aria-expanded', String(isOpen));
     menuButton.textContent = isOpen ? '×' : '☰';
+    menuButton.setAttribute('aria-label', tr(isOpen ? 'menu.close' : 'menu.open'));
   });
 
   document.querySelectorAll('.nav a').forEach((link) => {
@@ -14,20 +28,33 @@ if (menuButton && nav) {
       nav.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
       menuButton.textContent = '☰';
+      menuButton.setAttribute('aria-label', tr('menu.open'));
     });
   });
 }
 
-const PLATFORM_LABEL = {
-  win: 'Windows',
-  mac_arm64: 'macOS (Apple Silicon)',
-  mac_x64: 'macOS (Intel)',
+const PLATFORM_KEYS = {
+  win: 'platform.win',
+  mac_arm64: 'platform.mac_arm64',
+  mac_x64: 'platform.mac_x64',
 };
 
-const CHARACTER_LABEL = {
-  hebi: '헤비냥',
-  isha: '이샤롱',
+const CHARACTER_KEYS = {
+  hebi: 'characters.hebi',
+  isha: 'characters.isha',
 };
+
+function getCharacterLabel(character) {
+  return tr(CHARACTER_KEYS[character] || character);
+}
+
+function getPlatformLabel(platform) {
+  return tr(PLATFORM_KEYS[platform] || platform);
+}
+
+function getDownloadName(character, platform) {
+  return `${getCharacterLabel(character)} ${getPlatformLabel(platform)}`;
+}
 
 function showToast(message) {
   toast.textContent = message;
@@ -82,6 +109,40 @@ function trackDownloadAndNavigate(url, params) {
   gtag('event', 'download_click', eventParams);
 }
 
+const downloadBindings = [];
+
+function bindDownloadButton(button, manifest) {
+  const character = button.dataset.character;
+  const platform = button.dataset.platform;
+  const url = manifest.files?.[character]?.[platform]?.trim();
+  const name = getDownloadName(character, platform);
+
+  const old = downloadBindings.find((b) => b.button === button);
+  if (old?.handler) button.removeEventListener('click', old.handler);
+
+  if (!url) {
+    setDownloadButtonState(button, false, tr('download.preparing', { name }));
+    const handler = () => showToast(tr('download.preparingToast', { name }));
+    button.addEventListener('click', handler);
+    downloadBindings.push({ button, handler });
+    return;
+  }
+
+  setDownloadButtonState(button, true);
+  const handler = () => {
+    trackDownloadAndNavigate(url, {
+      character,
+      platform,
+      character_label: getCharacterLabel(character),
+      platform_label: getPlatformLabel(platform),
+      item_name: name,
+      file_url: url,
+    });
+  };
+  button.addEventListener('click', handler);
+  downloadBindings.push({ button, handler });
+}
+
 async function initDownloads() {
   const buttons = document.querySelectorAll('.download-btn[data-character][data-platform]');
   let manifest;
@@ -91,37 +152,25 @@ async function initDownloads() {
     if (!response.ok) throw new Error('manifest unavailable');
     manifest = await response.json();
   } catch {
-    buttons.forEach((button) => setDownloadButtonState(button, false, '다운로드 정보를 불러올 수 없습니다'));
+    buttons.forEach((button) => setDownloadButtonState(button, false, tr('download.manifestError')));
     return;
   }
 
-  buttons.forEach((button) => {
-    const character = button.dataset.character;
-    const platform = button.dataset.platform;
-    const url = manifest.files?.[character]?.[platform]?.trim();
-    const name = `${CHARACTER_LABEL[character] || character} ${PLATFORM_LABEL[platform] || platform}`;
-
-    if (!url) {
-      setDownloadButtonState(button, false, `${name} — 준비 중`);
-      button.addEventListener('click', () => showToast(`${name} 다운로드는 준비 중입니다.`));
-      return;
-    }
-
-    setDownloadButtonState(button, true);
-    button.addEventListener('click', () => {
-      trackDownloadAndNavigate(url, {
-        character,
-        platform,
-        character_label: CHARACTER_LABEL[character] || character,
-        platform_label: PLATFORM_LABEL[platform] || platform,
-        item_name: name,
-        file_url: url,
-      });
-    });
-  });
+  downloadBindings.length = 0;
+  buttons.forEach((button) => bindDownloadButton(button, manifest));
 }
 
 initDownloads();
+
+window.addEventListener('languagechange', () => {
+  updateLangBadge();
+  initDownloads();
+  refreshThemeLabels();
+  if (menuButton) {
+    const isOpen = nav?.classList.contains('open');
+    menuButton.setAttribute('aria-label', tr(isOpen ? 'menu.close' : 'menu.open'));
+  }
+});
 
 function initTheme() {
   const root = document.documentElement;
@@ -132,13 +181,18 @@ function initTheme() {
     return root.classList.contains('dark');
   }
 
+  window.refreshThemeLabels = function refreshThemeLabels() {
+    const dark = isDark();
+    if (btn) {
+      btn.setAttribute('aria-label', tr(dark ? 'theme.toLight' : 'theme.toDark'));
+      btn.setAttribute('title', tr(dark ? 'theme.dark' : 'theme.light'));
+    }
+  };
+
   function applyTheme(dark) {
     root.classList.toggle('dark', dark);
     root.classList.toggle('light', !dark);
-    if (btn) {
-      btn.setAttribute('aria-label', dark ? '라이트모드로 전환' : '다크모드로 전환');
-      btn.setAttribute('title', dark ? '다크 모드' : '라이트 모드');
-    }
+    window.refreshThemeLabels();
   }
 
   applyTheme(isDark());
@@ -155,6 +209,7 @@ function initTheme() {
 }
 
 initTheme();
+updateLangBadge();
 
 const revealElements = document.querySelectorAll('.reveal');
 revealElements.forEach((element) => element.classList.add('reveal-ready'));

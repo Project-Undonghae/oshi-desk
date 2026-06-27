@@ -45,18 +45,30 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Oshi Desk 홈">
+    <a class="brand" href="#top" data-i18n-attr="aria-label:brand.home">
       <strong>Oshi Desk</strong>
-      <span class="brand-tag">Unofficial Fan Project</span>
+      <span class="brand-tag" data-i18n="brand.tag">Unofficial Fan Project</span>
     </a>
     <div class="header-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="다크모드로 전환" title="라이트 모드">
+      <div class="lang-switcher">
+        <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu" data-i18n-attr="aria-label:lang.label;title:lang.label">
+          <svg class="lang-icon" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm6.93 3.07a7 7 0 0 1 0 9.86 7 7 0 0 1-9.86 0 7 7 0 0 1 0-9.86 7 7 0 0 1 9.86 0zM10 4.5c-1.2 0-2.3.3-3.3.8.5.7.9 1.5 1.2 2.4h4.2c.3-.9.7-1.7 1.2-2.4-1-.5-2.1-.8-3.3-.8zm-4.1 2.2c-.4.8-.7 1.7-.8 2.6h3.5c-.1-.8-.3-1.6-.6-2.3-.5-.1-1-.1-1.5-.1-.5 0-1 .1-1.6.2zm8.2 0c-.6-.1-1.1-.2-1.6-.2s-1 .1-1.5.1c-.3.7-.5 1.5-.6 2.3h3.5c-.1-.9-.4-1.8-.8-2.6zM4.7 10c0 .9.1 1.8.3 2.6H8c-.1-.8-.1-1.7-.1-2.6s0-1.8.1-2.6H5c-.2.8-.3 1.7-.3 2.6zm5.3 0c0 .9.1 1.7.1 2.6s-.1 1.7-.1 2.6h2.6c.2-.8.3-1.7.3-2.6s-.1-1.8-.3-2.6h-2.6zm3.9 0c0-.9-.1-1.8-.3-2.6h2.4c.2.8.3 1.7.3 2.6s-.1 1.8-.3 2.6h-2.4c.2-.8.3-1.7.3-2.6zM8 13.4c.1.9.3 1.7.6 2.4.5.1 1 .1 1.5.1s1-.1 1.5-.1c.3-.7.5-1.5.6-2.4H8zm-2.7 2.6c.4.8.7 1.6.8 2.5 1-.5 2.1-.8 3.3-.8s2.3.3 3.3.8c.1-.9.4-1.7.8-2.5H5.3zm8.7 2.5c1-.5 2.1-.8 3.3-.8 1.2 0 2.3.3 3.3.8-.1-.9-.4-1.7-.8-2.5h-5.8c.4.8.7 1.6.8 2.5z"/></svg>
+          <span class="lang-current" aria-hidden="true">KO</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="listbox" hidden>
+          <button class="lang-option active" type="button" role="option" data-lang="ko" aria-pressed="true" data-i18n="lang.ko">한국어</button>
+          <button class="lang-option" type="button" role="option" data-lang="en" aria-pressed="false" data-i18n="lang.en">English</button>
+          <button class="lang-option" type="button" role="option" data-lang="ja" aria-pressed="false" data-i18n="lang.ja">日本語</button>
+          <button class="lang-option" type="button" role="option" data-lang="zh-TW" aria-pressed="false" data-i18n="lang.zh-TW">繁體中文</button>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" data-i18n-attr="aria-label:theme.toDark;title:theme.light">
         <svg class="theme-icon theme-icon-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2" fill="currentColor"/><path fill="currentColor" d="M10 3.5a.8.8 0 0 1 .8.8V6a.8.8 0 1 1-1.6 0V4.3a.8.8 0 0 1 .8-.8zm0 11a.8.8 0 0 1 .8.8v1.7a.8.8 0 1 1-1.6 0V14.3a.8.8 0 0 1 .8-.8zM16.5 10a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8h-1.7a.8.8 0 1 1 0-1.6h1.7zm-11 0a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8H3.8a.8.8 0 1 1 0-1.6h1.7zM14.2 5.8a.8.8 0 0 1 1.1 0 .8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 1 1-1.1-1.1l1.2-1.2zM5.9 14.1a.8.8 0 0 1 1.1 0 .8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 0 1-1.1-1.1l1.2-1.2zM14.2 14.1a.8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 1 1-1.1-1.1l1.2-1.2a.8.8 0 0 1 1.1 0zM5.9 5.8a.8.8 0 0 1 0 1.1L4.7 8.1a.8.8 0 1 1-1.1-1.1l1.2-1.2a.8.8 0 0 1 1.1 0z"/></svg>
         <svg class="theme-icon theme-icon-moon" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M15.5 11.2a6.5 6.5 0 0 1-9.9-8.1A6.5 6.5 0 1 0 15.5 11.2z"/></svg>
       </button>
-      <button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="주요 메뉴">
-        <a href="#about">소개</a>
+      <button class="menu-toggle" data-i18n-attr="aria-label:menu.open" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Main">
+        <a href="#about" data-i18n="nav.about">소개</a>
       </nav>
     </div>
   </header>
@@ -65,36 +77,36 @@
     <section class="hero">
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-characters">
-        <figure><img src="assets/heavinyang.png" alt="웃으며 손을 흔드는 헤비냥"><figcaption>헤비냥</figcaption></figure>
-        <figure><img src="assets/ishalong.png" alt="하트를 보내는 이샤롱"><figcaption>이샤롱</figcaption></figure>
+        <figure><img src="assets/heavinyang.png" data-i18n-attr="alt:hero.heavinyangAlt" alt="웃으며 손을 흔드는 헤비냥"><figcaption data-i18n="characters.hebi">헤비냥</figcaption></figure>
+        <figure><img src="assets/ishalong.png" data-i18n-attr="alt:hero.ishalongAlt" alt="하트를 보내는 이샤롱"><figcaption data-i18n="characters.isha">이샤롱</figcaption></figure>
       </div>
       <div class="hero-copy reveal">
         <p class="eyebrow">YOUR LITTLE DESKTOP FRIEND</p>
         <h1>Oshi <span>Desk</span></h1>
-        <p class="hero-lead">좋아하는 사람과 늘,<br>함께할 수 있도록</p>
+        <p class="hero-lead" data-i18n="hero.lead" data-i18n-html="true">좋아하는 사람과 늘,<br>함께할 수 있도록</p>
       </div>
     </section>
 
     <section class="download-section" id="download" aria-labelledby="download-title">
       <div class="download-shell">
-        <div class="download-heading"><p class="section-label">DOWNLOAD</p><h2 id="download-title">나의 오시를 데스크톱으로</h2></div>
+        <div class="download-heading"><p class="section-label">DOWNLOAD</p><h2 id="download-title" data-i18n="download.title">나의 오시를 데스크톱으로</h2></div>
         <div class="download-groups">
           <div class="download-group heavinyang-download">
-            <h3>헤비냥</h3>
-            <img class="download-character" src="assets/download-heavinyang.png" alt="달리는 헤비냥">
-            <button class="download-btn purple" data-character="hebi" data-platform="win"><b>헤비냥 다운로드<small>Windows</small></b></button>
-            <button class="download-btn purple" data-character="hebi" data-platform="mac_arm64"><b>헤비냥 다운로드<small>macOS (Apple Silicon)</small></b></button>
-            <button class="download-btn purple" data-character="hebi" data-platform="mac_x64"><b>헤비냥 다운로드<small>macOS (Intel)</small></b></button>
+            <h3 data-i18n="characters.hebi">헤비냥</h3>
+            <img class="download-character" src="assets/download-heavinyang.png" data-i18n-attr="alt:download.heavinyangAlt" alt="달리는 헤비냥">
+            <button class="download-btn purple" data-character="hebi" data-platform="win"><b><span class="dl-label" data-dl="hebi" data-i18n="download.hebi">헤비냥 다운로드</span><small class="dl-platform" data-platform-label="win" data-i18n="platform.win">Windows</small></b></button>
+            <button class="download-btn purple" data-character="hebi" data-platform="mac_arm64"><b><span class="dl-label" data-dl="hebi" data-i18n="download.hebi">헤비냥 다운로드</span><small class="dl-platform" data-platform-label="mac_arm64" data-i18n="platform.mac_arm64">macOS (Apple Silicon)</small></b></button>
+            <button class="download-btn purple" data-character="hebi" data-platform="mac_x64"><b><span class="dl-label" data-dl="hebi" data-i18n="download.hebi">헤비냥 다운로드</span><small class="dl-platform" data-platform-label="mac_x64" data-i18n="platform.mac_x64">macOS (Intel)</small></b></button>
           </div>
           <div class="download-group ishalong-download">
-            <h3>이샤롱</h3>
-            <img class="download-character" src="assets/download-ishalong.png" alt="기뻐하는 이샤롱">
-            <button class="download-btn pink" data-character="isha" data-platform="win"><b>이샤롱 다운로드<small>Windows</small></b></button>
-            <button class="download-btn pink" data-character="isha" data-platform="mac_arm64"><b>이샤롱 다운로드<small>macOS (Apple Silicon)</small></b></button>
-            <button class="download-btn pink" data-character="isha" data-platform="mac_x64"><b>이샤롱 다운로드<small>macOS (Intel)</small></b></button>
+            <h3 data-i18n="characters.isha">이샤롱</h3>
+            <img class="download-character" src="assets/download-ishalong.png" data-i18n-attr="alt:download.ishalongAlt" alt="기뻐하는 이샤롱">
+            <button class="download-btn pink" data-character="isha" data-platform="win"><b><span class="dl-label" data-dl="isha" data-i18n="download.isha">이샤롱 다운로드</span><small class="dl-platform" data-platform-label="win" data-i18n="platform.win">Windows</small></b></button>
+            <button class="download-btn pink" data-character="isha" data-platform="mac_arm64"><b><span class="dl-label" data-dl="isha" data-i18n="download.isha">이샤롱 다운로드</span><small class="dl-platform" data-platform-label="mac_arm64" data-i18n="platform.mac_arm64">macOS (Apple Silicon)</small></b></button>
+            <button class="download-btn pink" data-character="isha" data-platform="mac_x64"><b><span class="dl-label" data-dl="isha" data-i18n="download.isha">이샤롱 다운로드</span><small class="dl-platform" data-platform-label="mac_x64" data-i18n="platform.mac_x64">macOS (Intel)</small></b></button>
           </div>
         </div>
-        <p class="download-note">최신 Windows/macOS 설치 파일 · 무료</p>
+        <p class="download-note" data-i18n="download.note">최신 Windows/macOS 설치 파일 · 무료</p>
       </div>
     </section>
 
@@ -102,28 +114,28 @@
       <section class="feature section-grid reveal" id="about">
         <div class="section-copy">
           <p class="section-label">Section 01</p>
-          <h2>바탕화면 속,<br>나만의 작은 펫과 함께</h2>
-          <p>귀여운 Desk Pet이 바탕화면 위에서 기다리고, 걷고, 쉬고, 반응합니다. 작은 움직임만으로도 데스크탑에 좋아하는 사람의 분위기를 더할 수 있어요.</p>
+          <h2 data-i18n="about.h2" data-i18n-html="true">바탕화면 속,<br>나만의 작은 펫과 함께</h2>
+          <p data-i18n="about.p">귀여운 Desk Pet이 바탕화면 위에서 기다리고, 걷고, 쉬고, 반응합니다. 작은 움직임만으로도 데스크탑에 좋아하는 사람의 분위기를 더할 수 있어요.</p>
         </div>
         <div class="mood-grid">
-          <article class="mood-card"><img class="pet-asset idle" src="assets/idle.png" alt="대기 중인 헤비냥"><b>Idle</b><small>얌전히 기다려요</small></article>
-          <article class="mood-card"><img class="pet-asset walk" src="assets/walk.png" alt="산책하는 이샤롱"><b>Walk</b><small>화면을 산책해요</small></article>
-          <article class="mood-card"><img class="pet-asset listening" src="assets/listening.png" alt="음악을 듣고 있는 헤비냥"><b>Listening</b><small>함께 들어요</small></article>
-          <article class="mood-card"><img class="pet-asset happy" src="assets/grabbed.png" alt="잡아서 이동하는 이샤롱"><b>Grab</b><small>클릭해서 이동해요</small></article>
+          <article class="mood-card"><img class="pet-asset idle" src="assets/idle.png" data-i18n-attr="alt:about.idleAlt" alt="대기 중인 헤비냥"><b>Idle</b><small data-i18n="about.idle">얌전히 기다려요</small></article>
+          <article class="mood-card"><img class="pet-asset walk" src="assets/walk.png" data-i18n-attr="alt:about.walkAlt" alt="산책하는 이샤롱"><b>Walk</b><small data-i18n="about.walk">화면을 산책해요</small></article>
+          <article class="mood-card"><img class="pet-asset listening" src="assets/listening.png" data-i18n-attr="alt:about.listeningAlt" alt="음악을 듣고 있는 헤비냥"><b>Listening</b><small data-i18n="about.listening">함께 들어요</small></article>
+          <article class="mood-card"><img class="pet-asset happy" src="assets/grabbed.png" data-i18n-attr="alt:about.grabAlt" alt="잡아서 이동하는 이샤롱"><b>Grab</b><small data-i18n="about.grab">클릭해서 이동해요</small></article>
         </div>
       </section>
 
       <section class="feature section-grid reveal">
         <div class="section-copy">
           <p class="section-label">Section 02</p>
-          <h2>자주 찾는 채널을<br>한 번의 클릭으로</h2>
-          <p>캐릭터를 좌클릭하면 영상, 음악, SNS와 커뮤니티 등 자주 방문하는 채널로 빠르게 이동할 수 있어요.</p>
+          <h2 data-i18n="channels.h2" data-i18n-html="true">자주 찾는 채널을<br>한 번의 클릭으로</h2>
+          <p data-i18n="channels.p">캐릭터를 좌클릭하면 영상, 음악, SNS와 커뮤니티 등 자주 방문하는 채널로 빠르게 이동할 수 있어요.</p>
         </div>
         <div class="channel-demo">
-          <div class="demo-pet"><img src="assets/heavinyang.png" alt="헤비냥"></div>
+          <div class="demo-pet"><img src="assets/heavinyang.png" data-i18n-attr="alt:channels.demoPetAlt" alt="헤비냥"></div>
           <div class="arrow">→</div>
           <div class="channel-panel">
-            <div class="panel-title"><span>🐱</span> 나의 Channel <b>×</b></div>
+            <div class="panel-title"><span>🐱</span> <span data-i18n="channels.panelTitle">나의 Channel</span> <b>×</b></div>
             <div class="channel-grid">
               <button type="button" aria-label="YouTube"><span class="yt">▶</span>YouTube</button>
               <button type="button" aria-label="X"><span class="x">𝕏</span>X</button>
@@ -139,10 +151,10 @@
       <section class="project-note reveal">
         <div>
           <p class="section-label">OUR BEGINNING</p>
-          <h2>작은 연결에서 시작된 프로젝트</h2>
-          <p>좋아하는 존재가 일상 가까이에 머무는 경험을 목표로 합니다. 화면 한편의 조용한 움직임이 평범한 하루를 조금 더 다정하게 만들기를 바랍니다.</p>
+          <h2 data-i18n="project.h2">작은 연결에서 시작된 프로젝트</h2>
+          <p data-i18n="project.p">좋아하는 존재가 일상 가까이에 머무는 경험을 목표로 합니다. 화면 한편의 조용한 움직임이 평범한 하루를 조금 더 다정하게 만들기를 바랍니다.</p>
         </div>
-        <div class="project-link"><span>✨</span><div><b>Oshi Desk 소식 받기</b><p>새 캐릭터와 업데이트를 가장 먼저 확인하세요.</p></div><a class="x-link" href="https://x.com/Oshi_Desk" target="_blank" rel="noopener noreferrer" aria-label="X에서 Oshi Desk 소식 보기"><img src="assets/x-icon.svg" alt=""></a></div>
+        <div class="project-link"><span>✨</span><div><b data-i18n="project.linkTitle">Oshi Desk 소식 받기</b><p data-i18n="project.linkDesc">새 캐릭터와 업데이트를 가장 먼저 확인하세요.</p></div><a class="x-link" href="https://x.com/Oshi_Desk" target="_blank" rel="noopener noreferrer" data-i18n-attr="aria-label:project.xAria"><img src="assets/x-icon.svg" alt=""></a></div>
       </section>
     </div>
   </main>
@@ -150,25 +162,27 @@
   <footer class="site-footer">
     <div class="footer-brand">
       <strong>Oshi Desk</strong>
-      <span>좋아하는 마음을 화면 가까이.</span>
+      <span data-i18n="footer.tagline">좋아하는 마음을 화면 가까이.</span>
       <small>© 2026 Oshi Desk</small>
     </div>
     <div class="footer-contact">
       <p class="footer-origin-label">CONTACT</p>
-      <p class="footer-contact-copy">문의사항은 <a href="mailto:ssongshare0720@gmail.com">ssongshare0720@gmail.com</a>으로 보내주세요.</p>
+      <p class="footer-contact-copy" data-i18n="footer.contact" data-i18n-html="true">문의사항은 <a href="mailto:ssongshare0720@gmail.com">ssongshare0720@gmail.com</a>으로 보내주세요.</p>
     </div>
     <div class="footer-origin">
       <p class="footer-origin-label">FROM</p>
-      <a class="footer-origin-link" href="https://project-undonghae.github.io/desk-ai-pet/" target="_blank" rel="noopener noreferrer" aria-label="DAP, Desk AI Pet — Oshi Desk가 시작된 AgentOS">
+      <a class="footer-origin-link" href="https://project-undonghae.github.io/desk-ai-pet/" target="_blank" rel="noopener noreferrer" data-i18n-attr="aria-label:footer.originAria">
         <span class="footer-origin-copy">
           <b>DAP</b>
-          <small>Desk AI Pet · Oshi Desk가 시작된 AgentOS</small>
+          <small data-i18n="footer.originDesc">Desk AI Pet · Oshi Desk가 시작된 AgentOS</small>
         </span>
         <span class="footer-origin-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
   </footer>
   <div class="toast" role="status" aria-live="polite"></div>
+  <script src="i18n.js"></script>
+  <script>initI18n();</script>
   <script src="script.js"></script>
 </body>
 </html>
