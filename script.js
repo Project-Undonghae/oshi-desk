@@ -87,6 +87,39 @@ async function initDownloads() {
 
 initDownloads();
 
+function initTheme() {
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const STORAGE_KEY = 'oshi-desk-theme';
+
+  function isDark() {
+    return root.classList.contains('dark');
+  }
+
+  function applyTheme(dark) {
+    root.classList.toggle('dark', dark);
+    root.classList.toggle('light', !dark);
+    if (btn) {
+      btn.setAttribute('aria-label', dark ? '라이트모드로 전환' : '다크모드로 전환');
+      btn.setAttribute('title', dark ? '다크 모드' : '라이트 모드');
+    }
+  }
+
+  applyTheme(isDark());
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = !isDark();
+      applyTheme(next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next ? 'dark' : 'light');
+      } catch (_) {}
+    });
+  }
+}
+
+initTheme();
+
 const revealElements = document.querySelectorAll('.reveal');
 revealElements.forEach((element) => element.classList.add('reveal-ready'));
 
