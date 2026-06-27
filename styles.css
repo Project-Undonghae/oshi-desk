@@ -32,6 +32,7 @@
 .download-group h3{grid-column:1/-1;margin:0 0 3px;font-size:18px}
 .download-group .download-btn{min-width:0;width:100%;min-height:76px;padding:12px 14px;justify-content:center;text-align:center;border-radius:13px}
 .download-group .download-btn b{line-height:1.25;font-size:14px}
+.download-group .download-btn .dl-label{font-size:inherit}
 .download-group .download-btn small{margin-top:5px;font-size:11px}
 .project-link .x-link{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:12px;flex:0 0 auto}
 .project-link .x-link img{display:block;width:30px;height:30px}
