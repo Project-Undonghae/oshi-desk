@@ -43,6 +43,45 @@ function setDownloadButtonState(button, enabled, label) {
   else button.removeAttribute('title');
 }
 
+function getFileDetails(url) {
+  try {
+    const pathname = new URL(url, window.location.href).pathname;
+    const fileName = decodeURIComponent(pathname.split('/').pop() || '');
+    const fileExtension = fileName.includes('.') ? fileName.split('.').pop().toLowerCase() : '';
+    return { fileName, fileExtension };
+  } catch (_) {
+    return { fileName: '', fileExtension: '' };
+  }
+}
+
+function trackDownloadAndNavigate(url, params) {
+  let navigating = false;
+  const navigate = () => {
+    if (navigating) return;
+    navigating = true;
+    window.location.href = url;
+  };
+
+  if (typeof gtag !== 'function') {
+    navigate();
+    return;
+  }
+
+  const { fileName, fileExtension } = getFileDetails(url);
+  const eventParams = {
+    ...params,
+    file_name: fileName,
+    file_extension: fileExtension,
+    link_url: url,
+    transport_type: 'beacon',
+    event_callback: navigate,
+    event_timeout: 1000,
+  };
+
+  window.setTimeout(navigate, 1200);
+  gtag('event', 'download_click', eventParams);
+}
+
 async function initDownloads() {
   const buttons = document.querySelectorAll('.download-btn[data-character][data-platform]');
   let manifest;
@@ -70,17 +109,14 @@ async function initDownloads() {
 
     setDownloadButtonState(button, true);
     button.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'download_click', {
-          character,
-          platform,
-          character_label: CHARACTER_LABEL[character] || character,
-          platform_label: PLATFORM_LABEL[platform] || platform,
-          item_name: name,
-          file_url: url,
-        });
-      }
-      window.location.href = url;
+      trackDownloadAndNavigate(url, {
+        character,
+        platform,
+        character_label: CHARACTER_LABEL[character] || character,
+        platform_label: PLATFORM_LABEL[platform] || platform,
+        item_name: name,
+        file_url: url,
+      });
     });
   });
 }
