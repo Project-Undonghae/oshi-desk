@@ -81,6 +81,24 @@ function getFileDetails(url) {
   }
 }
 
+function getCampaignParams() {
+  const params = new URLSearchParams(window.location.search);
+  const campaignParams = {};
+
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
+    const value = params.get(key);
+    if (value) campaignParams[key] = value;
+  });
+
+  if (document.referrer) {
+    try {
+      campaignParams.referrer_host = new URL(document.referrer).hostname;
+    } catch (_) {}
+  }
+
+  return campaignParams;
+}
+
 function trackDownloadAndNavigate(url, params) {
   let navigating = false;
   const navigate = () => {
@@ -97,6 +115,7 @@ function trackDownloadAndNavigate(url, params) {
   const { fileName, fileExtension } = getFileDetails(url);
   const eventParams = {
     ...params,
+    ...getCampaignParams(),
     file_name: fileName,
     file_extension: fileExtension,
     link_url: url,
