@@ -1,0 +1,30 @@
+# Oshi Desk
+
+Official site: https://www.oshidesk.com/
+
+Oshi Desk is a free desktop pet app for Windows and macOS. It lets users keep favorite characters close to their desktop screen.
+
+Current characters:
+- Hebinyang
+- Ishalong
+
+Current version: 0.2.4
+
+Supported platforms:
+- Windows
+- macOS Apple Silicon
+- macOS Intel
+
+Language pages:
+- Korean: https://www.oshidesk.com/ko/
+- English: https://www.oshidesk.com/en/
+- Japanese: https://www.oshidesk.com/ja/
+- Traditional Chinese: https://www.oshidesk.com/zh-tw/
+
+Downloads are provided through the official GitHub releases for Project-Undonghae/oshi-desk.
+
+Official social:
+- X: https://x.com/Oshi_Desk
+
+Contact:
+- ssongshare0720@gmail.com

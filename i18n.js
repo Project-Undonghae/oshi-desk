@@ -1,8 +1,11 @@
 const I18N = {
   ko: {
     meta: {
-      description: 'Oshi Desk - 좋아하는 캐릭터와 함께하는 데스크톱 펫',
-      ogDescription: '좋아하는 마음을 화면 가까이.',
+      title: 'Oshi Desk - Windows/macOS 데스크톱 펫',
+      description: 'Oshi Desk는 Windows와 macOS에서 사용할 수 있는 무료 데스크톱 펫 앱입니다. 헤비냥과 이샤롱 캐릭터를 바탕화면 가까이에 두고 만나요.',
+      ogTitle: 'Oshi Desk - Windows/macOS 데스크톱 펫',
+      ogDescription: '좋아하는 캐릭터와 함께하는 무료 Windows/macOS 데스크톱 펫 앱.',
+      locale: 'ko_KR',
     },
     lang: {
       label: '언어',
@@ -71,8 +74,11 @@ const I18N = {
   },
   en: {
     meta: {
-      description: 'Oshi Desk — A desktop pet with your favorite character',
-      ogDescription: 'Keep what you love close to your screen.',
+      title: 'Oshi Desk - Windows/macOS Desktop Pet',
+      description: 'Oshi Desk is a free desktop pet app for Windows and macOS. Keep Hebinyang and Ishalong close to your screen.',
+      ogTitle: 'Oshi Desk - Windows/macOS Desktop Pet',
+      ogDescription: 'A free Windows/macOS desktop pet app with your favorite characters.',
+      locale: 'en_US',
     },
     lang: {
       label: 'Language',
@@ -141,8 +147,11 @@ const I18N = {
   },
   ja: {
     meta: {
-      description: 'Oshi Desk — 好きなキャラと一緒にいるデスクトップペット',
-      ogDescription: '好きな気持ちを、画面のすぐそばに。',
+      title: 'Oshi Desk - Windows/macOS デスクトップペット',
+      description: 'Oshi Desk は Windows と macOS で使える無料のデスクトップペットアプリです。Hebinyang と Ishalong を画面のそばに置けます。',
+      ogTitle: 'Oshi Desk - Windows/macOS デスクトップペット',
+      ogDescription: '好きなキャラクターと一緒に過ごせる無料の Windows/macOS デスクトップペットアプリ。',
+      locale: 'ja_JP',
     },
     lang: {
       label: '言語',
@@ -211,8 +220,11 @@ const I18N = {
   },
   'zh-TW': {
     meta: {
-      description: 'Oshi Desk — 與喜愛角色同行的桌面寵物',
-      ogDescription: '把喜愛的心意，留在螢幕身旁。',
+      title: 'Oshi Desk - Windows/macOS 桌面寵物',
+      description: 'Oshi Desk 是適用於 Windows 與 macOS 的免費桌面寵物 App，可將 Hebinyang 與 Ishalong 留在螢幕身旁。',
+      ogTitle: 'Oshi Desk - Windows/macOS 桌面寵物',
+      ogDescription: '與喜愛角色同行的免費 Windows/macOS 桌面寵物 App。',
+      locale: 'zh_TW',
     },
     lang: {
       label: '語言',
@@ -283,6 +295,19 @@ const I18N = {
 
 const LANG_STORAGE_KEY = 'oshi-desk-lang';
 const SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh-TW'];
+const LANG_PATH_MAP = {
+  ko: 'ko',
+  en: 'en',
+  ja: 'ja',
+  'zh-TW': 'zh-tw',
+};
+
+function detectLangFromPath() {
+  const firstSegment = window.location.pathname.split('/').filter(Boolean)[0]?.toLowerCase();
+  if (!firstSegment) return null;
+  if (firstSegment === 'zh-tw' || firstSegment === 'zh-hant') return 'zh-TW';
+  return SUPPORTED_LANGS.find((lang) => LANG_PATH_MAP[lang] === firstSegment) || null;
+}
 
 function resolveLang(code) {
   if (!code) return 'ko';
@@ -301,6 +326,9 @@ function resolveLang(code) {
 }
 
 function detectLang() {
+  const pathLang = detectLangFromPath();
+  if (pathLang) return pathLang;
+
   try {
     const stored = localStorage.getItem(LANG_STORAGE_KEY);
     if (stored) return resolveLang(stored);
@@ -333,8 +361,17 @@ function applyLanguage(lang) {
 
   const desc = document.querySelector('meta[name="description"]');
   if (desc) desc.setAttribute('content', dict.meta.description);
+  document.title = dict.meta.title;
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', dict.meta.ogTitle);
   const ogDesc = document.querySelector('meta[property="og:description"]');
   if (ogDesc) ogDesc.setAttribute('content', dict.meta.ogDescription);
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogLocale) ogLocale.setAttribute('content', dict.meta.locale);
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) twitterTitle.setAttribute('content', dict.meta.ogTitle);
+  const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDesc) twitterDesc.setAttribute('content', dict.meta.ogDescription);
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;

@@ -29,6 +29,34 @@ Google Search Console에 `https://www.oshidesk.com/` 속성을 등록한다.
 https://www.oshidesk.com/sitemap.xml
 ```
 
+## Bing Webmaster Tools
+
+Bing Webmaster Tools에 `https://www.oshidesk.com/` 사이트를 추가하고 소유권을 확인한다.
+
+권장 순서:
+
+1. Google Search Console에 먼저 등록되어 있다면 Bing의 Google Search Console 가져오기를 사용한다.
+2. 가져오기가 어렵다면 HTML 메타 태그 또는 DNS 레코드 방식으로 소유권을 확인한다.
+3. 사이트맵 메뉴에서 아래 URL을 제출한다.
+
+```text
+https://www.oshidesk.com/sitemap.xml
+```
+
+## Naver Search Advisor
+
+네이버 서치어드바이저 웹마스터 도구에 `https://www.oshidesk.com/` 사이트를 등록하고 소유확인을 진행한다.
+
+권장 순서:
+
+1. HTML 파일 업로드 또는 HTML 메타 태그 방식으로 사이트 소유확인을 한다.
+2. 사이트맵 제출 메뉴에서 아래 URL을 제출한다.
+3. robots.txt 검증 메뉴에서 `Yeti` 접근이 허용되는지 확인한다.
+
+```text
+https://www.oshidesk.com/sitemap.xml
+```
+
 확인할 공개 URL:
 
 ```text
