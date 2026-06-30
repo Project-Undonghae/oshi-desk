@@ -64,7 +64,7 @@ function showToast(message) {
 }
 
 function setDownloadButtonState(button, enabled, label) {
-  button.disabled = !enabled;
+  if ('disabled' in button) button.disabled = !enabled;
   button.setAttribute('aria-disabled', String(!enabled));
   if (label) button.setAttribute('title', label);
   else button.removeAttribute('title');
@@ -148,7 +148,8 @@ function bindDownloadButton(button, manifest) {
   }
 
   setDownloadButtonState(button, true);
-  const handler = () => {
+  const handler = (event) => {
+    event.preventDefault();
     trackDownloadAndNavigate(url, {
       character,
       platform,
@@ -167,7 +168,7 @@ async function initDownloads() {
   let manifest;
 
   try {
-    const response = await fetch('downloads/index.json', { cache: 'no-store' });
+    const response = await fetch('/downloads/index.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('manifest unavailable');
     manifest = await response.json();
   } catch {
@@ -175,6 +176,7 @@ async function initDownloads() {
     return;
   }
 
+  downloadBindings.forEach(({ button, handler }) => button.removeEventListener('click', handler));
   downloadBindings.length = 0;
   buttons.forEach((button) => bindDownloadButton(button, manifest));
 }
