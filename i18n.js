@@ -17,7 +17,7 @@ const I18N = {
     brand: { home: 'Oshi Desk 홈', tag: 'Unofficial Fan Project' },
     theme: { toDark: '다크모드로 전환', toLight: '라이트모드로 전환', dark: '다크 모드', light: '라이트 모드' },
     menu: { open: '메뉴 열기', close: '메뉴 닫기' },
-    nav: { about: '소개' },
+    nav: { home: '홈', about: '소개', notes: '개발자 노트', creators: '크리에이터', collaboration: '협업 안내', aria: '주요 메뉴' },
     hero: {
       lead: '좋아하는 사람과 늘,<br>함께할 수 있도록',
       heavinyangAlt: '웃으며 손을 흔드는 헤비냥',
@@ -71,6 +71,37 @@ const I18N = {
       originAria: 'DAP, Desk AI Pet — Oshi Desk가 시작된 AgentOS',
       originDesc: 'Desk AI Pet · Oshi Desk가 시작된 AgentOS',
     },
+    notes: {
+      meta: { title: '개발자 노트 | Oshi Desk', description: 'Oshi Desk 버전별 개발 기록과 업데이트 안내' },
+      hero: { label: 'DEVELOPER NOTES', h1: '만드는 과정을<br>투명하게 기록합니다', p: '버전별 변경점과 개발 방향을 확인하세요. 각 항목을 열면 주요 개선 내용과 다음 계획을 볼 수 있습니다.' },
+      archive: { label: 'VERSION ARCHIVE', h2: '버전별 개발 노트', p: '새 버전이 준비될 때마다 가장 최근 기록이 위에 추가됩니다.' },
+      table: { version: '버전', title: '제목', status: '상태', date: '작성일' },
+      v030: { version: 'v0.3.0', title: '다음 업데이트 준비', status: '개발 중', date: '업데이트 예정', h3: '이번 버전에서 준비 중인 내용', items: ['크리에이터 온보딩 흐름 개선', '새 캐릭터 추가 및 채널 연동 확장', '알림 배지 및 설정 UI 정비'] },
+      v024: { version: 'v0.2.4', title: 'Windows/macOS 정식 배포', status: '배포됨', date: '2026.07', h3: '멀티 플랫폼 배포', items: ['Windows portable 및 macOS dmg 배포', 'Apple Silicon · Intel 환경별 패키지 분리', '다운로드 페이지 및 설치 안내 개선'] },
+      v020: { version: 'v0.2.0', title: '크리에이터 채널 연결 확장', status: '배포됨', date: '2026.06', h3: '연결 경험 개선', items: ['영상·방송·음원·커뮤니티 채널 바로가기 구성', '크리에이터별 메뉴 순서와 표시 이름 설정', '지원 채널의 새 소식 알림 배지 검토'] },
+      v010: { version: 'v0.1.0', title: 'Oshi Desk 첫 공개 준비', status: '기록', date: '프로젝트 시작', h3: '프로젝트의 출발점', items: ['바탕화면 위에서 움직이는 오시 캐릭터', 'Idle, Walk, Listening, Grab 등 핵심 동작 설계', '크리에이터별 캐릭터 리소스 적용 구조 마련'] },
+      callout: { strong: '개발 노트는 계속 업데이트됩니다.', p: '릴리스 일정과 세부 기능은 개발 상황에 따라 조정될 수 있습니다.' },
+      nav: { prev: '← 홈으로', next: '크리에이터 보기 →' },
+    },
+    creators: {
+      meta: { title: '크리에이터 | Oshi Desk', description: 'Oshi Desk와 함께 데스크톱 오시를 제작·기여한 크리에이터' },
+      hero: { label: 'CREATORS', h1: '좋아하는 마음으로<br>이어진 사람들', p: '데스크톱 오시를 함께 만들고 기여한 크리에이터를 소개합니다. 캐릭터 다운로드는 홈에서 확인할 수 있습니다.' },
+      official: { label: 'OFFICIAL COLLABORATION', h2: '협업 크리에이터', p: 'Oshi Desk와 공식 협업으로 전용 데스크톱 오시를 선보이는 크리에이터입니다.', tag: 'Official', comingSoon: '프로필 공개 준비 중' },
+      fan: { label: 'FAN MADE', h2: '팬 제작 크리에이터', p: '팬의 창작과 응원으로 데스크톱 오시를 만들어 온 제작자를 소개합니다.', tag: 'Fan Made', comingSoon: '프로필 등록 예정' },
+      nav: { prev: '← 개발자 노트', next: '협업 안내 보기 →' },
+    },
+    collab: {
+      meta: { title: '협업 안내 | Oshi Desk', description: 'Oshi Desk 크리에이터 협업 제작 자료 및 제출 기준' },
+      hero: { label: 'COLLABORATION GUIDE', h1: '나만의 오시를<br>바탕화면 위로', p: '크리에이터 전용 Oshi Desk 제작에 필요한 그림 리소스, 앱 아이콘, 프로필 정보를 한눈에 확인하세요.' },
+      intro: { label: 'BEFORE YOU START', h2: '세 가지 자료를 준비하면<br>전용 데스크톱 오시를 만들 수 있습니다.', p: '캐릭터가 자연스럽게 움직이고 팬에게 새 소식을 전할 수 있도록, 아래 제작 기준에 맞춰 자료를 정리해 주세요.', primary: '제작 기준 확인하기', secondary: '제작 문의하기' },
+      req: { label: '01 · REQUIRED MATERIALS', h2: '필수 제출 자료', p: '누락 없이 전달할수록 제작과 검수가 빠르게 진행됩니다.', c1h: '캐릭터 애니메이션', c1p: '동작별 연속 그림을 폴더로 구분해 제출합니다. 8개 애니메이션과 좌·우 포즈가 필요합니다.', c2h: '앱 아이콘', c2p: '설치 파일과 작업표시줄·메뉴바에 사용할 1024×1024 대표 이미지 한 장을 준비합니다.', c3h: '프로필과 SNS', c3p: '표시 이름, 채널 버튼 이름, 정확한 URL, 메뉴에 표시할 우선순위를 정리합니다.' },
+      spec: { label: '02 · ASSET SPEC', h2: '그림 리소스 기본 사양', p: '프레임 수가 많을수록 움직임이 부드럽고 자연스럽습니다.', f1: '파일 형식', f1v: 'PNG 권장', f2: '캔버스 크기', f2v: '256 × 256 px', f3: '배경', f3v: '투명 배경', f4: '파일명', f4v: 'idle_001 형식' },
+      motion: { label: '03 · MOTION LIST', h2: '동작별 최소 프레임', p: '최소 수량보다 적으면 움직임이 끊겨 보일 수 있습니다.', th1: '동작', th2: '설명', th3: '최소 수량', r1: ['기본 (idle)', '가만히 있을 때의 숨쉬기 등 기본 동작', '20장 이상'], r2: ['걷기 (walk)', '화면을 천천히 걸어 다니는 동작', '6장 이상'], r3: ['달리기 (run)', '빠르게 이동하는 동작', '6장 이상'], r4: ['잠자기 (sleep)', '오래 가만히 두면 잠드는 동작', '16장 이상'], r5: ['기지개 (stretch)', '잠에서 깰 때 기지개 켜는 동작', '12장 이상'], r6: ['리액션 (listening)', '소리가 날 때 반응하는 동작', '12장 이상'], r7: ['행복 (happy)', '메뉴를 열었을 때 기뻐하는 동작', '6장 이상'], r8: ['잡힘 (grabbed)', '마우스로 들어 올렸을 때 동작', '6장 이상'], r9: ['좌 (left)', '왼쪽을 바라보는 포즈', '1장'], r10: ['우 (right)', '오른쪽을 바라보는 포즈', '1장'] },
+      icon: { label: '04 · ICON & PROFILE', h2: '아이콘과 채널 정보', p: '작은 크기에서도 캐릭터의 얼굴이나 상징이 선명한 구도를 권장합니다.', c1h: '대표 아이콘', c1p: 'PNG, 1024×1024 px, 정사각형 원본 한 장. 투명 배경을 권장하며 필요한 크기는 제작팀이 변환합니다.', c2h: '표시 이름', c2p: '앱과 메뉴에 노출할 오시 이름을 한글·영문 표기와 함께 전달해 주세요.', c3h: '채널 링크', c3p: 'YouTube, 치지직, Spotify, 멜론, CIME, Weverse, X, 네이버 카페, 팬심 등을 지원합니다.', callout: '목록에 없는 채널도 링크 버튼으로 추가할 수 있습니다.', calloutP: '다만 새 글 알림 배지는 지원 플랫폼에 한해 제공될 수 있습니다. 버튼 이름·URL·표시 순서를 함께 전달해 주세요.' },
+      folder: { label: '05 · FOLDER STRUCTURE', h2: '권장 폴더 구성', p: '아래 구조로 정리한 뒤 ZIP 파일로 압축하면 가장 빠르게 제작할 수 있습니다.', tree: '[크리에이터명]/\n├─ character/\n│  ├─ idle/        (idle_001.png, idle_002.png ...)\n│  ├─ walk/        (walk_001.png ...)\n│  ├─ run/         ├─ sleep/       ├─ stretch/\n│  ├─ listening/   ├─ happy/       ├─ grabbed/\n│  └─ left/        └─ right/\n├─ icon.png        (1024×1024 대표 아이콘)\n└─ profile.txt     (이름 · SNS 링크 · 표시 순서)' },
+      check: { label: 'FINAL CHECK', h2: '제출 전 확인', p: '네 가지 항목을 모두 확인한 뒤 전달해 주세요.', c1b: '모든 동작 폴더', c1p: '8개 애니메이션과 좌·우 포즈가 모두 준비됐나요?', c2b: '최소 프레임 수', c2p: '각 동작이 안내된 최소 장수를 충족하나요?', c3b: '투명 배경과 파일명', c3p: '256×256 투명 이미지와 3자리 번호 규칙을 지켰나요?', c4b: '아이콘과 프로필', c4p: '대표 아이콘, 표시 이름, 채널 URL과 순서를 포함했나요?' },
+      nav: { prev: '← 크리에이터', next: '홈으로 돌아가기 →' },
+    },
   },
   en: {
     meta: {
@@ -90,7 +121,7 @@ const I18N = {
     brand: { home: 'Oshi Desk home', tag: 'Unofficial Fan Project' },
     theme: { toDark: 'Switch to dark mode', toLight: 'Switch to light mode', dark: 'Dark mode', light: 'Light mode' },
     menu: { open: 'Open menu', close: 'Close menu' },
-    nav: { about: 'About' },
+    nav: { home: 'Home', about: 'About', notes: 'Developer Notes', creators: 'Creators', collaboration: 'Collaboration', aria: 'Main menu' },
     hero: {
       lead: 'Stay close to the people<br>you love, always',
       heavinyangAlt: 'Hebinyang waving happily',
@@ -144,6 +175,37 @@ const I18N = {
       originAria: 'DAP, Desk AI Pet — the AgentOS where Oshi Desk began',
       originDesc: 'Desk AI Pet · The AgentOS where Oshi Desk began',
     },
+    notes: {
+      meta: { title: 'Developer Notes | Oshi Desk', description: 'Version history and update notes for Oshi Desk' },
+      hero: { label: 'DEVELOPER NOTES', h1: 'We document the build<br>process openly', p: 'Check version changes and development direction. Expand each entry for highlights and upcoming plans.' },
+      archive: { label: 'VERSION ARCHIVE', h2: 'Release notes by version', p: 'The newest entry appears at the top whenever a version is ready.' },
+      table: { version: 'Version', title: 'Title', status: 'Status', date: 'Date' },
+      v030: { version: 'v0.3.0', title: 'Next update in progress', status: 'In development', date: 'Coming soon', h3: 'What we are preparing', items: ['Improved creator onboarding flow', 'New characters and expanded channel links', 'Notification badges and settings UI polish'] },
+      v024: { version: 'v0.2.4', title: 'Windows/macOS release', status: 'Released', date: 'Jul 2026', h3: 'Multi-platform rollout', items: ['Windows portable and macOS dmg downloads', 'Separate packages for Apple Silicon and Intel', 'Download page and install guidance improvements'] },
+      v020: { version: 'v0.2.0', title: 'Creator channel links', status: 'Released', date: 'Jun 2026', h3: 'Better connection experience', items: ['Shortcuts to video, live, music, and community channels', 'Per-creator menu order and display names', 'New-post badge support under review'] },
+      v010: { version: 'v0.1.0', title: 'First public release prep', status: 'Archive', date: 'Project start', h3: 'Where it began', items: ['Desktop oshi characters on your screen', 'Core motions: Idle, Walk, Listening, Grab', 'Structure for per-creator character assets'] },
+      callout: { strong: 'Developer notes will keep updating.', p: 'Release timing and details may change as development continues.' },
+      nav: { prev: '← Home', next: 'View creators →' },
+    },
+    creators: {
+      meta: { title: 'Creators | Oshi Desk', description: 'Creators who build and contribute desktop oshi on Oshi Desk' },
+      hero: { label: 'CREATORS', h1: 'People connected<br>through love', p: 'Meet creators who build and contribute desktop oshi. Download characters from the home page.' },
+      official: { label: 'OFFICIAL COLLABORATION', h2: 'Collaboration creators', p: 'Creators who launch dedicated desktop oshi through official collaboration with Oshi Desk.', tag: 'Official', comingSoon: 'Profile coming soon' },
+      fan: { label: 'FAN MADE', h2: 'Fan-made creators', p: 'Creators who built desktop oshi through fan creativity and support.', tag: 'Fan Made', comingSoon: 'Profile registration planned' },
+      nav: { prev: '← Developer Notes', next: 'View collaboration guide →' },
+    },
+    collab: {
+      meta: { title: 'Collaboration Guide | Oshi Desk', description: 'Asset requirements and submission guidelines for Oshi Desk creators' },
+      hero: { label: 'COLLABORATION GUIDE', h1: 'Bring your oshi<br>to the desktop', p: 'See the art assets, app icon, and profile info needed for a dedicated Oshi Desk build.' },
+      intro: { label: 'BEFORE YOU START', h2: 'Prepare three materials<br>for your dedicated desktop oshi', p: 'Organize assets using the guidelines below so your character moves naturally and can share updates with fans.', primary: 'View requirements', secondary: 'Contact the team' },
+      req: { label: '01 · REQUIRED MATERIALS', h2: 'Required submissions', p: 'Complete submissions help us review and build faster.', c1h: 'Character animation', c1p: 'Submit frame sequences by motion folder. Eight animations plus left/right poses are required.', c2h: 'App icon', c2p: 'Provide one 1024×1024 master image for installers and the taskbar/menu bar.', c3h: 'Profile & SNS', c3p: 'Include display name, button labels, exact URLs, and menu priority order.' },
+      spec: { label: '02 · ASSET SPEC', h2: 'Art asset basics', p: 'More frames mean smoother, more natural motion.', f1: 'Format', f1v: 'PNG recommended', f2: 'Canvas', f2v: '256 × 256 px', f3: 'Background', f3v: 'Transparent', f4: 'Filename', f4v: 'idle_001 format' },
+      motion: { label: '03 · MOTION LIST', h2: 'Minimum frames per motion', p: 'Below the minimum, motion may look choppy.', th1: 'Motion', th2: 'Description', th3: 'Minimum', r1: ['Idle', 'Breathing and resting while still', '20+ frames'], r2: ['Walk', 'Slowly moving across the screen', '6+ frames'], r3: ['Run', 'Fast movement', '6+ frames'], r4: ['Sleep', 'Falls asleep when idle long enough', '16+ frames'], r5: ['Stretch', 'Waking stretch after sleep', '12+ frames'], r6: ['Listening', 'Reacts when sound plays', '12+ frames'], r7: ['Happy', 'Happy reaction when menu opens', '6+ frames'], r8: ['Grabbed', 'Reaction when picked up', '6+ frames'], r9: ['Left', 'Facing left pose', '1 frame'], r10: ['Right', 'Facing right pose', '1 frame'] },
+      icon: { label: '04 · ICON & PROFILE', h2: 'Icon and channel info', p: 'Use a composition where the face or symbol stays clear at small sizes.', c1h: 'Master icon', c1p: 'One PNG, 1024×1024 px square. Transparent background recommended; we resize as needed.', c2h: 'Display name', c2p: 'Provide the oshi name shown in the app and menu, in local and English spelling if possible.', c3h: 'Channel links', c3p: 'Supports YouTube, CHZZK, Spotify, Melon, CIME, Weverse, X, Naver Cafe, Fancim, and more.', callout: 'Channels not listed can still be added as link buttons.', calloutP: 'New-post badges may only be available on supported platforms. Include button name, URL, and display order.' },
+      folder: { label: '05 · FOLDER STRUCTURE', h2: 'Recommended folder layout', p: 'Zip the structure below for the fastest turnaround.', tree: '[CreatorName]/\n├─ character/\n│  ├─ idle/        (idle_001.png, idle_002.png ...)\n│  ├─ walk/        (walk_001.png ...)\n│  ├─ run/         ├─ sleep/       ├─ stretch/\n│  ├─ listening/   ├─ happy/       ├─ grabbed/\n│  └─ left/        └─ right/\n├─ icon.png        (1024×1024 master icon)\n└─ profile.txt     (name · SNS links · display order)' },
+      check: { label: 'FINAL CHECK', h2: 'Before you submit', p: 'Confirm all four items before sending.', c1b: 'All motion folders', c1p: 'Are all eight animations plus left/right poses included?', c2b: 'Minimum frame counts', c2p: 'Does each motion meet the minimum frame count?', c3b: 'Transparent PNGs and filenames', c3p: 'Are images 256×256 with transparent backgrounds and 3-digit numbering?', c4b: 'Icon and profile', c4p: 'Did you include icon, display name, channel URLs, and order?' },
+      nav: { prev: '← Creators', next: 'Back to home →' },
+    },
   },
   ja: {
     meta: {
@@ -163,7 +225,7 @@ const I18N = {
     brand: { home: 'Oshi Desk ホーム', tag: 'Unofficial Fan Project' },
     theme: { toDark: 'ダークモードに切り替え', toLight: 'ライトモードに切り替え', dark: 'ダークモード', light: 'ライトモード' },
     menu: { open: 'メニューを開く', close: 'メニューを閉じる' },
-    nav: { about: '紹介' },
+    nav: { home: 'ホーム', about: '紹介', notes: '開発者ノート', creators: 'クリエイター', collaboration: 'コラボ案内', aria: 'メインメニュー' },
     hero: {
       lead: '好きな人と、いつも<br>一緒にいられるように',
       heavinyangAlt: '笑顔で手を振る Hebinyang',
@@ -217,6 +279,37 @@ const I18N = {
       originAria: 'DAP、Desk AI Pet — Oshi Desk が生まれた AgentOS',
       originDesc: 'Desk AI Pet · Oshi Desk が始まった AgentOS',
     },
+    notes: {
+      meta: { title: '開発者ノート | Oshi Desk', description: 'Oshi Desk のバージョン別開発記録とアップデート案内' },
+      hero: { label: 'DEVELOPER NOTES', h1: '制作過程を<br>透明に記録します', p: 'バージョンごとの変更点と開発方針を確認できます。各項目を開くと主な改善内容と今後の予定が見られます。' },
+      archive: { label: 'VERSION ARCHIVE', h2: 'バージョン別開発ノート', p: '新しいバージョンの準備が進むたび、最新の記録が上に追加されます。' },
+      table: { version: 'バージョン', title: 'タイトル', status: '状態', date: '作成日' },
+      v030: { version: 'v0.3.0', title: '次回アップデート準備', status: '開発中', date: '更新予定', h3: '今回のバージョンで準備中の内容', items: ['クリエイターオンボーディング改善', '新キャラクター追加とチャンネル連携拡張', '通知バッジと設定 UI の整備'] },
+      v024: { version: 'v0.2.4', title: 'Windows/macOS 正式配布', status: '配布済み', date: '2026.07', h3: 'マルチプラットフォーム配布', items: ['Windows portable と macOS dmg 配布', 'Apple Silicon · Intel 向けパッケージ分離', 'ダウンロードページとインストール案内の改善'] },
+      v020: { version: 'v0.2.0', title: 'クリエイターチャンネル連携拡張', status: '配布済み', date: '2026.06', h3: '接続体験の改善', items: ['動画・配信・音源・コミュニティへのショートカット', 'クリエイター別メニュー順序と表示名設定', '対応チャンネルの新着通知バッジ検討'] },
+      v010: { version: 'v0.1.0', title: 'Oshi Desk 初公開準備', status: '記録', date: 'プロジェクト開始', h3: 'プロジェクトの出発点', items: ['デスクトップ上で動く推しキャラクター', 'Idle, Walk, Listening, Grab などの基本動作設計', 'クリエイター別キャラクターリソース適用構造'] },
+      callout: { strong: '開発ノートは今後も更新されます。', p: 'リリース日程と詳細機能は開発状況により調整される場合があります。' },
+      nav: { prev: '← ホームへ', next: 'クリエイターを見る →' },
+    },
+    creators: {
+      meta: { title: 'クリエイター | Oshi Desk', description: 'Oshi Desk でデスクトップ推しを制作・協力したクリエイター' },
+      hero: { label: 'CREATORS', h1: '好きな気持ちで<br>つながった人たち', p: 'デスクトップ推しを一緒に作り、協力したクリエイターを紹介します。キャラクターのダウンロードはホームからご覧ください。' },
+      official: { label: 'OFFICIAL COLLABORATION', h2: '協力クリエイター', p: 'Oshi Desk と公式協力で専用デスクトップ推しを公開するクリエイターです。', tag: 'Official', comingSoon: 'プロフィール公開準備中' },
+      fan: { label: 'FAN MADE', h2: 'ファン制作クリエイター', p: 'ファンの創作と応援でデスクトップ推しを作ってきた制作者を紹介します。', tag: 'Fan Made', comingSoon: 'プロフィール登録予定' },
+      nav: { prev: '← 開発者ノート', next: 'コラボ案内を見る →' },
+    },
+    collab: {
+      meta: { title: 'コラボ案内 | Oshi Desk', description: 'Oshi Desk クリエイター協力の制作資料と提出基準' },
+      hero: { label: 'COLLABORATION GUIDE', h1: '自分だけの推しを<br>デスクトップへ', p: '専用 Oshi Desk 制作に必要な画像リソース、アプリアイコン、プロフィール情報を確認できます。' },
+      intro: { label: 'BEFORE YOU START', h2: '3 つの資料を準備すれば<br>専用デスクトップ推しが作れます', p: 'キャラクターが自然に動き、ファンへ新着を届けられるよう、以下の制作基準に沿って整理してください。', primary: '制作基準を確認', secondary: '制作の問い合わせ' },
+      req: { label: '01 · REQUIRED MATERIALS', h2: '必須提出資料', p: '漏れが少ないほど制作と検収が早く進みます。', c1h: 'キャラクターアニメーション', c1p: '動作ごとの連続画像をフォルダ分けして提出します。8 アニメーションと左右ポーズが必要です。', c2h: 'アプリアイコン', c2p: 'インストーラーとタスクバー/メニューバー用の 1024×1024 代表画像を 1 枚用意します。', c3h: 'プロフィールと SNS', c3p: '表示名、ボタン名、正確な URL、メニュー表示順を整理してください。' },
+      spec: { label: '02 · ASSET SPEC', h2: '画像リソース基本仕様', p: 'フレーム数が多いほど動きが滑らかになります。', f1: 'ファイル形式', f1v: 'PNG 推奨', f2: 'キャンバス', f2v: '256 × 256 px', f3: '背景', f3v: '透過背景', f4: 'ファイル名', f4v: 'idle_001 形式' },
+      motion: { label: '03 · MOTION LIST', h2: '動作別最小フレーム数', p: '最小数を下回ると動きがカクついて見える場合があります。', th1: '動作', th2: '説明', th3: '最小数', r1: ['基本 (idle)', '静止時の呼吸など基本動作', '20 枚以上'], r2: ['歩行 (walk)', '画面をゆっくり歩く動作', '6 枚以上'], r3: ['走行 (run)', '素早く移動する動作', '6 枚以上'], r4: ['睡眠 (sleep)', '長時間放置で眠る動作', '16 枚以上'], r5: ['伸び (stretch)', '目覚めの伸び動作', '12 枚以上'], r6: ['反応 (listening)', '音に反応する動作', '12 枚以上'], r7: ['喜び (happy)', 'メニューを開いたときの動作', '6 枚以上'], r8: ['掴み (grabbed)', 'マウスで持ち上げたとき', '6 枚以上'], r9: ['左 (left)', '左を向くポーズ', '1 枚'], r10: ['右 (right)', '右を向くポーズ', '1 枚'] },
+      icon: { label: '04 · ICON & PROFILE', h2: 'アイコンとチャンネル情報', p: '小さいサイズでも顔やシンボルがはっきり見える構図を推奨します。', c1h: '代表アイコン', c1p: 'PNG、1024×1024 px、正方形 1 枚。透過背景推奨。必要サイズは制作チームが変換します。', c2h: '表示名', c2p: 'アプリとメニューに表示する推し名を、可能なら現地語と英語表記で共有してください。', c3h: 'チャンネルリンク', c3p: 'YouTube、CHZZK、Spotify、Melon、CIME、Weverse、X、Naver Cafe、Fancim などに対応。', callout: 'リストにないチャンネルもリンクボタンとして追加できます。', calloutP: '新着通知バッジは対応プラットフォームのみ提供される場合があります。ボタン名・URL・表示順も一緒に送ってください。' },
+      folder: { label: '05 · FOLDER STRUCTURE', h2: '推奨フォルダ構成', p: '以下の構成で ZIP 圧縮すると最も早く制作できます。', tree: '[CreatorName]/\n├─ character/\n│  ├─ idle/        (idle_001.png, idle_002.png ...)\n│  ├─ walk/        (walk_001.png ...)\n│  ├─ run/         ├─ sleep/       ├─ stretch/\n│  ├─ listening/   ├─ happy/       ├─ grabbed/\n│  └─ left/        └─ right/\n├─ icon.png        (1024×1024 master icon)\n└─ profile.txt     (name · SNS links · display order)' },
+      check: { label: 'FINAL CHECK', h2: '提出前チェック', p: '4 項目を確認してから送ってください。', c1b: 'すべての動作フォルダ', c1p: '8 アニメーションと左右ポーズは揃っていますか？', c2b: '最小フレーム数', c2p: '各動作が最小枚数を満たしていますか？', c3b: '透過背景とファイル名', c3p: '256×256 透過画像と 3 桁番号規則を守っていますか？', c4b: 'アイコンとプロフィール', c4p: '代表アイコン、表示名、URL、順序を含めましたか？' },
+      nav: { prev: '← クリエイター', next: 'ホームへ戻る →' },
+    },
   },
   'zh-TW': {
     meta: {
@@ -236,7 +329,7 @@ const I18N = {
     brand: { home: 'Oshi Desk 首頁', tag: 'Unofficial Fan Project' },
     theme: { toDark: '切換至深色模式', toLight: '切換至淺色模式', dark: '深色模式', light: '淺色模式' },
     menu: { open: '開啟選單', close: '關閉選單' },
-    nav: { about: '介紹' },
+    nav: { home: '首頁', about: '介紹', notes: '開發者筆記', creators: '創作者', collaboration: '合作指南', aria: '主要選單' },
     hero: {
       lead: '讓喜歡的人，<br>始終陪在身邊',
       heavinyangAlt: '笑著揮手的 Hebinyang',
@@ -289,6 +382,37 @@ const I18N = {
       contact: '如有問題，請寄信至 <a href="mailto:ssongshare0720@gmail.com">ssongshare0720@gmail.com</a>。',
       originAria: 'DAP、Desk AI Pet — Oshi Desk 的起點 AgentOS',
       originDesc: 'Desk AI Pet · Oshi Desk 誕生的 AgentOS',
+    },
+    notes: {
+      meta: { title: '開發者筆記 | Oshi Desk', description: 'Oshi Desk 各版本開發紀錄與更新說明' },
+      hero: { label: 'DEVELOPER NOTES', h1: '透明記錄<br>開發過程', p: '查看各版本變更與開發方向。展開每個項目即可看到主要改進與後續計畫。' },
+      archive: { label: 'VERSION ARCHIVE', h2: '版本開發筆記', p: '每當新版本準備就緒，最新紀錄會加在最上方。' },
+      table: { version: '版本', title: '標題', status: '狀態', date: '日期' },
+      v030: { version: 'v0.3.0', title: '下一版更新準備中', status: '開發中', date: '更新預定', h3: '本版準備中的內容', items: ['改善創作者 onboarding 流程', '新增角色與擴充頻道連結', '通知徽章與設定介面整理'] },
+      v024: { version: 'v0.2.4', title: 'Windows/macOS 正式發布', status: '已發布', date: '2026.07', h3: '多平台發布', items: ['Windows portable 與 macOS dmg 下載', 'Apple Silicon · Intel 分開封裝', '下載頁與安裝說明改善'] },
+      v020: { version: 'v0.2.0', title: '創作者頻道連結擴充', status: '已發布', date: '2026.06', h3: '連結體驗改善', items: ['影片、直播、音樂、社群捷徑', '每位創作者的選單順序與顯示名稱', '支援頻道的新貼文通知徽章評估中'] },
+      v010: { version: 'v0.1.0', title: 'Oshi Desk 首次公開準備', status: '紀錄', date: '專案起點', h3: '專案起點', items: ['桌面上的推角色', 'Idle、Walk、Listening、Grab 等核心動作', '每位創作者的角色資源套用結構'] },
+      callout: { strong: '開發者筆記會持續更新。', p: '發布時程與細節可能依開發進度調整。' },
+      nav: { prev: '← 返回首頁', next: '查看創作者 →' },
+    },
+    creators: {
+      meta: { title: '創作者 | Oshi Desk', description: '在 Oshi Desk 製作與貢獻桌面推的創作者' },
+      hero: { label: 'CREATORS', h1: '因喜愛而<br>連結的人們', p: '介紹一同製作、貢獻桌面推的創作者。角色下載請至首頁查看。' },
+      official: { label: 'OFFICIAL COLLABORATION', h2: '合作創作者', p: '與 Oshi Desk 官方合作推出專屬桌面推的創作者。', tag: 'Official', comingSoon: '個人檔案即將公開' },
+      fan: { label: 'FAN MADE', h2: '粉絲創作創作者', p: '介紹以粉絲創意與支持製作桌面推的創作者。', tag: 'Fan Made', comingSoon: '個人檔案登記預定' },
+      nav: { prev: '← 開發者筆記', next: '查看合作指南 →' },
+    },
+    collab: {
+      meta: { title: '合作指南 | Oshi Desk', description: 'Oshi Desk 創作者合作素材與提交標準' },
+      hero: { label: 'COLLABORATION GUIDE', h1: '把專屬推<br>帶到桌面上', p: '查看製作專屬 Oshi Desk 所需的圖像資源、App 圖示與個人檔案資訊。' },
+      intro: { label: 'BEFORE YOU START', h2: '準備三份資料<br>就能製作專屬桌面推', p: '請依下列標準整理素材，讓角色自然活動並向粉絲傳遞新消息。', primary: '查看製作標準', secondary: '聯絡製作團隊' },
+      req: { label: '01 · REQUIRED MATERIALS', h2: '必備提交資料', p: '資料越完整，製作與審核越快。', c1h: '角色動畫', c1p: '依動作分資料夾提交連續圖片。需要 8 種動畫與左右姿勢。', c2h: 'App 圖示', c2p: '提供一張 1024×1024 代表圖，用於安裝檔與工作列/選單列。', c3h: '個人檔案與 SNS', c3p: '整理顯示名稱、按鈕名稱、正確 URL 與選單優先順序。' },
+      spec: { label: '02 · ASSET SPEC', h2: '圖像資源基本規格', p: '影格越多，動作越流暢自然。', f1: '檔案格式', f1v: '建議 PNG', f2: '畫布大小', f2v: '256 × 256 px', f3: '背景', f3v: '透明背景', f4: '檔名', f4v: 'idle_001 格式' },
+      motion: { label: '03 · MOTION LIST', h2: '各動作最少影格', p: '低於最少數量可能看起來卡頓。', th1: '動作', th2: '說明', th3: '最少數量', r1: ['基本 (idle)', '靜止時的呼吸等基本動作', '20 張以上'], r2: ['行走 (walk)', '緩慢在畫面移動', '6 張以上'], r3: ['奔跑 (run)', '快速移動', '6 張以上'], r4: ['睡眠 (sleep)', '長時間不動後入睡', '16 張以上'], r5: ['伸懶腰 (stretch)', '醒來伸懶腰', '12 張以上'], r6: ['反應 (listening)', '有聲音時的反應', '12 張以上'], r7: ['開心 (happy)', '開啟選單時的反應', '6 張以上'], r8: ['被抓住 (grabbed)', '滑鼠抓起時', '6 張以上'], r9: ['左 (left)', '面向左側姿勢', '1 張'], r10: ['右 (right)', '面向右側姿勢', '1 張'] },
+      icon: { label: '04 · ICON & PROFILE', h2: '圖示與頻道資訊', p: '建議構圖在小尺寸下仍能清楚看見角色臉部或象徵。', c1h: '代表圖示', c1p: 'PNG、1024×1024 px 正方形一張。建議透明背景，其餘尺寸由團隊轉換。', c2h: '顯示名稱', c2p: '請提供 App 與選單顯示的推名稱，含中文與英文更佳。', c3h: '頻道連結', c3p: '支援 YouTube、CHZZK、Spotify、Melon、CIME、Weverse、X、Naver Cafe、Fancim 等。', callout: '清單外的頻道也可新增為連結按鈕。', calloutP: '新貼文通知徽章可能僅限支援平台。請一併提供按鈕名稱、URL 與顯示順序。' },
+      folder: { label: '05 · FOLDER STRUCTURE', h2: '建議資料夾結構', p: '依下列結構 ZIP 壓縮後提交，製作最快。', tree: '[CreatorName]/\n├─ character/\n│  ├─ idle/        (idle_001.png, idle_002.png ...)\n│  ├─ walk/        (walk_001.png ...)\n│  ├─ run/         ├─ sleep/       ├─ stretch/\n│  ├─ listening/   ├─ happy/       ├─ grabbed/\n│  └─ left/        └─ right/\n├─ icon.png        (1024×1024 master icon)\n└─ profile.txt     (name · SNS links · display order)' },
+      check: { label: 'FINAL CHECK', h2: '提交前確認', p: '確認以下四項後再送出。', c1b: '所有動作資料夾', c1p: '8 種動畫與左右姿勢都齊全了嗎？', c2b: '最少影格數', c2p: '各動作是否達到最少張數？', c3b: '透明背景與檔名', c3p: '是否為 256×256 透明圖且使用三位數編號？', c4b: '圖示與個人檔案', c4p: '是否包含代表圖示、顯示名稱、URL 與順序？' },
+      nav: { prev: '← 創作者', next: '返回首頁 →' },
     },
   },
 };
@@ -359,19 +483,27 @@ function applyLanguage(lang) {
 
   document.documentElement.lang = currentLang === 'zh-TW' ? 'zh-Hant' : currentLang;
 
+  const page = document.body.dataset.i18nPage;
+  const pageMeta = page ? getNested(dict, `${page}.meta`) : null;
+  const meta = pageMeta || dict.meta;
+
   const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute('content', dict.meta.description);
-  document.title = dict.meta.title;
+  if (desc) desc.setAttribute('content', meta.description);
+  document.title = meta.title;
   const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute('content', dict.meta.ogTitle);
+  if (ogTitle) ogTitle.setAttribute('content', meta.title);
   const ogDesc = document.querySelector('meta[property="og:description"]');
-  if (ogDesc) ogDesc.setAttribute('content', dict.meta.ogDescription);
+  if (ogDesc) ogDesc.setAttribute('content', meta.description);
   const ogLocale = document.querySelector('meta[property="og:locale"]');
-  if (ogLocale) ogLocale.setAttribute('content', dict.meta.locale);
+  const localeMap = { ko: 'ko_KR', en: 'en_US', ja: 'ja_JP', 'zh-TW': 'zh_TW' };
+  if (ogLocale) ogLocale.setAttribute('content', pageMeta ? (localeMap[currentLang] || 'ko_KR') : dict.meta.locale);
   const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-  if (twitterTitle) twitterTitle.setAttribute('content', dict.meta.ogTitle);
+  if (twitterTitle) twitterTitle.setAttribute('content', meta.title);
   const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-  if (twitterDesc) twitterDesc.setAttribute('content', dict.meta.ogDescription);
+  if (twitterDesc) twitterDesc.setAttribute('content', meta.description);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl && canonical?.href) ogUrl.setAttribute('content', canonical.href);
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
@@ -386,6 +518,22 @@ function applyLanguage(lang) {
       const [attr, key] = pair.split(':').map((s) => s.trim());
       if (attr && key) el.setAttribute(attr, translate(currentLang, key));
     });
+  });
+
+  document.querySelectorAll('[data-i18n-list]').forEach((el) => {
+    const items = getNested(dict, el.dataset.i18nList);
+    if (Array.isArray(items)) {
+      el.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-cells]').forEach((row) => {
+    const items = getNested(dict, row.dataset.i18nCells);
+    if (Array.isArray(items)) {
+      row.querySelectorAll('td').forEach((cell, index) => {
+        if (items[index] != null) cell.textContent = items[index];
+      });
+    }
   });
 
   document.querySelectorAll('.lang-option').forEach((btn) => {

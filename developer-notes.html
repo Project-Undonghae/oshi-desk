@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oshi Desk 버전별 개발 기록과 업데이트 안내">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fff6fb">
+  <link rel="canonical" href="https://www.oshidesk.com/developer-notes.html">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Content">
+  <meta property="og:site_name" content="Oshi Desk">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="개발자 노트 | Oshi Desk">
+  <meta property="og:description" content="Oshi Desk 버전별 개발 기록과 업데이트 안내">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.oshidesk.com/developer-notes.html">
+  <meta property="og:image" content="https://www.oshidesk.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="개발자 노트 | Oshi Desk">
+  <meta name="twitter:description" content="Oshi Desk 버전별 개발 기록과 업데이트 안내">
+  <meta name="twitter:image" content="https://www.oshidesk.com/assets/og.png">
+  <title>개발자 노트 | Oshi Desk</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('oshi-desk-theme');
+        var dark = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.add(dark ? 'dark' : 'light');
+      } catch (e) {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpages.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "개발자 노트 | Oshi Desk",
+      "description": "Oshi Desk 버전별 개발 기록과 업데이트 안내",
+      "url": "https://www.oshidesk.com/developer-notes.html",
+      "inLanguage": "ko",
+      "isPartOf": { "@type": "WebSite", "name": "Oshi Desk", "url": "https://www.oshidesk.com/" }
+    }
+  </script>
+</head>
+<body class="subpage-body" data-i18n-page="notes">
+  <header class="site-header">
+    <a class="brand" href="/" data-i18n-attr="aria-label:brand.home" aria-label="Oshi Desk 홈">
+      <strong>Oshi Desk</strong>
+      <span class="brand-tag" data-i18n="brand.tag">Unofficial Fan Project</span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-switcher">
+        <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu" data-i18n-attr="aria-label:lang.label;title:lang.label" aria-label="언어" title="언어">
+          <svg class="lang-icon" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm6.93 3.07a7 7 0 0 1 0 9.86 7 7 0 0 1-9.86 0 7 7 0 0 1 0-9.86 7 7 0 0 1 9.86 0zM10 4.5c-1.2 0-2.3.3-3.3.8.5.7.9 1.5 1.2 2.4h4.2c.3-.9.7-1.7 1.2-2.4-1-.5-2.1-.8-3.3-.8zm-4.1 2.2c-.4.8-.7 1.7-.8 2.6h3.5c-.1-.8-.3-1.6-.6-2.3-.5-.1-1-.1-1.5-.1-.5 0-1 .1-1.6.2zm8.2 0c-.6-.1-1.1-.2-1.6-.2s-1 .1-1.5.1c-.3.7-.5 1.5-.6 2.3h3.5c-.1-.9-.4-1.8-.8-2.6zM4.7 10c0 .9.1 1.8.3 2.6H8c-.1-.8-.1-1.7-.1-2.6s0-1.8.1-2.6H5c-.2.8-.3 1.7-.3 2.6zm5.3 0c0 .9.1 1.7.1 2.6s-.1 1.7-.1 2.6h2.6c.2-.8.3-1.7.3-2.6s-.1-1.8-.3-2.6h-2.6zm3.9 0c0-.9-.1-1.8-.3-2.6h2.4c.2.8.3 1.7.3 2.6s-.1 1.8-.3 2.6h-2.4c.2-.8.3-1.7.3-2.6zM8 13.4c.1.9.3 1.7.6 2.4.5.1 1 .1 1.5.1s1-.1 1.5-.1c.3-.7.5-1.5.6-2.4H8zm-2.7 2.6c.4.8.7 1.6.8 2.5 1-.5 2.1-.8 3.3-.8s2.3.3 3.3.8c.1-.9.4-1.7.8-2.5H5.3zm8.7 2.5c1-.5 2.1-.8 3.3-.8 1.2 0 2.3.3 3.3.8-.1-.9-.4-1.7-.8-2.5h-5.8c.4.8.7 1.6.8 2.5z"/></svg>
+          <span class="lang-current" aria-hidden="true">KO</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="listbox" hidden>
+          <button class="lang-option active" type="button" role="option" data-lang="ko" aria-pressed="true" aria-selected="true" data-i18n="lang.ko">한국어</button>
+          <button class="lang-option" type="button" role="option" data-lang="en" aria-pressed="false" aria-selected="false" data-i18n="lang.en">English</button>
+          <button class="lang-option" type="button" role="option" data-lang="ja" aria-pressed="false" aria-selected="false" data-i18n="lang.ja">日本語</button>
+          <button class="lang-option" type="button" role="option" data-lang="zh-TW" aria-pressed="false" aria-selected="false" data-i18n="lang.zh-TW">繁體中文</button>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" data-i18n-attr="aria-label:theme.toDark;title:theme.light" aria-label="다크모드로 전환" title="라이트 모드">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.2" fill="currentColor"/><path fill="currentColor" d="M10 3.5a.8.8 0 0 1 .8.8V6a.8.8 0 1 1-1.6 0V4.3a.8.8 0 0 1 .8-.8zm0 11a.8.8 0 0 1 .8.8v1.7a.8.8 0 1 1-1.6 0V14.3a.8.8 0 0 1 .8-.8zM16.5 10a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8h-1.7a.8.8 0 1 1 0-1.6h1.7zm-11 0a.8.8 0 0 1 .8.8.8.8 0 0 1-.8.8H3.8a.8.8 0 1 1 0-1.6h1.7zM14.2 5.8a.8.8 0 0 1 1.1 0 .8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 1 1-1.1-1.1l1.2-1.2zM5.9 14.1a.8.8 0 0 1 1.1 0 .8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 0 1-1.1-1.1l1.2-1.2zM14.2 14.1a.8.8 0 0 1 0 1.1l-1.2 1.2a.8.8 0 1 1-1.1-1.1l1.2-1.2a.8.8 0 0 1 1.1 0zM5.9 5.8a.8.8 0 0 1 0 1.1L4.7 8.1a.8.8 0 1 1-1.1-1.1l1.2-1.2a.8.8 0 0 1 1.1 0z"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M15.5 11.2a6.5 6.5 0 0 1-9.9-8.1A6.5 6.5 0 1 0 15.5 11.2z"/></svg>
+      </button>
+      <button class="menu-toggle" data-i18n-attr="aria-label:menu.open" aria-expanded="false" aria-label="메뉴 열기">☰</button>
+      <nav class="nav" data-i18n-attr="aria-label:nav.aria" aria-label="주요 메뉴">
+        <a href="/" data-i18n="nav.home">홈</a>
+        <a href="/developer-notes.html" aria-current="page" data-i18n="nav.notes">개발자 노트</a>
+        <a href="/creators.html" data-i18n="nav.creators">크리에이터</a>
+        <a href="/collaboration.html" data-i18n="nav.collaboration">협업 안내</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="subpage-main">
+    <section class="sub-hero">
+      <div class="sub-hero-inner">
+        <p class="section-label" data-i18n="notes.hero.label">DEVELOPER NOTES</p>
+        <h1 data-i18n="notes.hero.h1" data-i18n-html="true">만드는 과정을<br>투명하게 기록합니다</h1>
+        <p data-i18n="notes.hero.p">버전별 변경점과 개발 방향을 확인하세요. 각 항목을 열면 주요 개선 내용과 다음 계획을 볼 수 있습니다.</p>
+      </div>
+    </section>
+    <div class="content-shell">
+      <section class="content-section">
+        <div class="section-head">
+          <div><p class="section-label" data-i18n="notes.archive.label">VERSION ARCHIVE</p><h2 data-i18n="notes.archive.h2">버전별 개발 노트</h2></div>
+          <p data-i18n="notes.archive.p">새 버전이 준비될 때마다 가장 최근 기록이 위에 추가됩니다.</p>
+        </div>
+        <div class="release-board">
+          <div class="release-head"><span data-i18n="notes.table.version">버전</span><span data-i18n="notes.table.title">제목</span><span data-i18n="notes.table.status">상태</span><span data-i18n="notes.table.date">작성일</span></div>
+          <details class="release-row" open>
+            <summary><span class="release-version" data-i18n="notes.v030.version">v0.3.0</span><span class="release-title" data-i18n="notes.v030.title">다음 업데이트 준비</span><span class="status planned" data-i18n="notes.v030.status">개발 중</span><time class="release-date" data-i18n="notes.v030.date">업데이트 예정</time></summary>
+            <div class="release-content"><h3 data-i18n="notes.v030.h3">이번 버전에서 준비 중인 내용</h3><ul data-i18n-list="notes.v030.items"></ul></div>
+          </details>
+          <details class="release-row">
+            <summary><span class="release-version" data-i18n="notes.v024.version">v0.2.4</span><span class="release-title" data-i18n="notes.v024.title">Windows/macOS 정식 배포</span><span class="status released" data-i18n="notes.v024.status">배포됨</span><time class="release-date" data-i18n="notes.v024.date">2026.07</time></summary>
+            <div class="release-content"><h3 data-i18n="notes.v024.h3">멀티 플랫폼 배포</h3><ul data-i18n-list="notes.v024.items"></ul></div>
+          </details>
+          <details class="release-row">
+            <summary><span class="release-version" data-i18n="notes.v020.version">v0.2.0</span><span class="release-title" data-i18n="notes.v020.title">크리에이터 채널 연결 확장</span><span class="status released" data-i18n="notes.v020.status">배포됨</span><time class="release-date" data-i18n="notes.v020.date">2026.06</time></summary>
+            <div class="release-content"><h3 data-i18n="notes.v020.h3">연결 경험 개선</h3><ul data-i18n-list="notes.v020.items"></ul></div>
+          </details>
+          <details class="release-row">
+            <summary><span class="release-version" data-i18n="notes.v010.version">v0.1.0</span><span class="release-title" data-i18n="notes.v010.title">Oshi Desk 첫 공개 준비</span><span class="status" data-i18n="notes.v010.status">기록</span><time class="release-date" data-i18n="notes.v010.date">프로젝트 시작</time></summary>
+            <div class="release-content"><h3 data-i18n="notes.v010.h3">프로젝트의 출발점</h3><ul data-i18n-list="notes.v010.items"></ul></div>
+          </details>
+        </div>
+        <div class="note-callout"><span>✦</span><div><strong data-i18n="notes.callout.strong">개발 노트는 계속 업데이트됩니다.</strong><p class="empty-note" data-i18n="notes.callout.p">릴리스 일정과 세부 기능은 개발 상황에 따라 조정될 수 있습니다.</p></div></div>
+      </section>
+      <nav class="page-footer-nav" aria-label="다른 카테고리"><a href="/" data-i18n="notes.nav.prev">← 홈으로</a><a href="/creators.html" data-i18n="notes.nav.next">크리에이터 보기 →</a></nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <strong>Oshi Desk</strong>
+      <span data-i18n="footer.tagline">좋아하는 마음을 화면 가까이.</span>
+      <small>© 2026 Oshi Desk</small>
+    </div>
+    <div class="footer-contact">
+      <p class="footer-origin-label">CONTACT</p>
+      <p class="footer-contact-copy" data-i18n="footer.contact" data-i18n-html="true">문의사항은 <a href="mailto:ssongshare0720@gmail.com">ssongshare0720@gmail.com</a>으로 보내주세요.</p>
+    </div>
+  </footer>
+  <script src="/i18n.js"></script>
+  <script>initI18n();</script>
+  <script src="/script.js"></script>
+</body>
+</html>

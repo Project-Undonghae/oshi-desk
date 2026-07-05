@@ -1,30 +1,41 @@
 # Oshi Desk
 
-Official site: https://www.oshidesk.com/
+Website: https://www.oshidesk.com/
+Project type: Unofficial fan project
+Product: Free desktop pet app for Windows and macOS
 
-Oshi Desk is a free desktop pet app for Windows and macOS. It lets users keep favorite characters close to their desktop screen.
+Oshi Desk lets users keep favorite characters close on the desktop. Characters walk, idle, react to sound, and link to creator channels.
 
-Current characters:
-- Hebinyang
-- Ishalong
+Current fan-made characters (not official collaborations):
+- Hebinyang (헤비냥)
+- Ishalong (이샤롱)
 
 Current version: 0.2.4
 
 Supported platforms:
-- Windows
-- macOS Apple Silicon
-- macOS Intel
+- Windows (portable exe)
+- macOS Apple Silicon (dmg)
+- macOS Intel (dmg)
 
-Language pages:
+Language home pages:
 - Korean: https://www.oshidesk.com/ko/
 - English: https://www.oshidesk.com/en/
 - Japanese: https://www.oshidesk.com/ja/
 - Traditional Chinese: https://www.oshidesk.com/zh-tw/
 
-Downloads are provided through the official GitHub releases for Project-Undonghae/oshi-desk.
+Subpages:
+- Developer notes: https://www.oshidesk.com/developer-notes.html
+- Creators (people who build oshi): https://www.oshidesk.com/creators.html
+- Collaboration guide: https://www.oshidesk.com/collaboration.html
+- Creator asset guide (Word): https://www.oshidesk.com/assets/OshiDesk_creator_guide.docx
+
+Downloads: GitHub releases for Project-Undonghae/oshi-desk
 
 Official social:
 - X: https://x.com/Oshi_Desk
 
 Contact:
 - ssongshare0720@gmail.com
+
+Origin project:
+- DAP (Desk AI Pet): https://project-undonghae.github.io/desk-ai-pet/
