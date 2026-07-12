@@ -57,6 +57,10 @@ function getDownloadName(character, platform) {
   return `${getCharacterLabel(character)} ${getPlatformLabel(platform)}`;
 }
 
+function getProduct(character) {
+  return character === 'mini' ? 'mini' : 'pet';
+}
+
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add('show');
@@ -152,6 +156,7 @@ function bindDownloadButton(button, manifest) {
   const handler = (event) => {
     event.preventDefault();
     trackDownloadAndNavigate(url, {
+      product: getProduct(character),
       character,
       platform,
       character_label: getCharacterLabel(character),
