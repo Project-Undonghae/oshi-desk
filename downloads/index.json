@@ -9,6 +9,11 @@
       "win": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.4/OshiDesk-Isha-0.2.4-portable-win64.exe",
       "mac_arm64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.4/OshiDesk-Isha-0.2.4-macos-arm64.dmg",
       "mac_x64": "https://github.com/Project-Undonghae/oshi-desk/releases/download/v0.2.4/OshiDesk-Isha-0.2.4-macos-x64.dmg"
+    },
+    "mini": {
+      "win": "",
+      "mac_arm64": "",
+      "mac_x64": ""
     }
   }
 }

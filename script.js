@@ -42,6 +42,7 @@ const PLATFORM_KEYS = {
 const CHARACTER_KEYS = {
   hebi: 'characters.hebi',
   isha: 'characters.isha',
+  mini: 'characters.mini',
 };
 
 function getCharacterLabel(character) {
