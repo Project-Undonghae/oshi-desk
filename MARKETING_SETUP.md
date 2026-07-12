@@ -6,6 +6,7 @@ GA4 관리자에서 `download_click` 이벤트를 key event로 지정한다.
 
 권장 커스텀 차원:
 
+- `product` (`mini` 또는 `pet`)
 - `character`
 - `platform`
 - `character_label`
@@ -18,6 +19,14 @@ GA4 관리자에서 `download_click` 이벤트를 key event로 지정한다.
 - `utm_content`
 - `utm_term`
 - `referrer_host`
+
+Mini/Pet 다운로드 확인 방법:
+
+1. GA4 관리자 → 데이터 표시 → 맞춤 정의에서 이벤트 범위 커스텀 차원 `product`를 등록한다.
+2. GA4 탐색 → 자유 형식에서 행에 `product`, 값에 `이벤트 수`를 추가한다.
+3. 필터를 `이벤트 이름 = download_click`로 설정한다.
+
+실시간 검증은 GA4 DebugView 또는 실시간 보고서에서 `download_click` 이벤트의 `product`, `character`, `platform` 값을 확인한다.
 
 ## Search Console
 
